@@ -6,7 +6,9 @@ package ui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.Employee;
 import model.employeelist;
 
@@ -67,6 +69,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         txtSearchTerm = new javax.swing.JTextField();
         lblSearchTerm = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         tblEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,8 +195,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                 txtSearchTermActionPerformed(evt);
             }
         });
+        txtSearchTerm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchTermKeyReleased(evt);
+            }
+        });
 
-        lblSearchTerm.setText("Term ");
+        lblSearchTerm.setText("SearchTerm ");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 102));
+        jLabel2.setText("Search Can be performed on Name, EmpId, Level, PositionTitle, TeamInfo, PhoneNo, Email Id");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -251,21 +263,25 @@ public class ViewJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(25, 25, 25))
-            .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblSearchTerm)
-                .addGap(18, 18, 18)
-                .addComponent(txtSearchTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSearch)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(btnSaveEmp)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeleteEmp)
-                .addGap(264, 264, 264))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(btnSaveEmp)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteEmp))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lblSearchTerm)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtSearchTerm, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSearch)))))
+                .addGap(92, 92, 92))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,13 +293,15 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(btnSearch)
                     .addComponent(txtSearchTerm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSearchTerm))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSaveEmp)
                     .addComponent(btnDeleteEmp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +344,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblContactEmaild))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(536, 536, 536))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -373,32 +391,106 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void btnSaveEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEmpActionPerformed
         // TODO add your handling code here:
         for(Employee e: this.emplst.getEmpArray()){
+            if(txtName.getText().equals("") || txtEmployeeId.getText().equals("") || txtAge.getText().equals("") || 
+               txtGender.getText().equals("") || txtStartDate.getText().equals("") || txtLevel.getText().equals("") ||
+                txtTeamInfo.getText().equals("") || txtPositionInfo.getText().equals("") || txtContactPhoneNo.getText().equals("") ||
+                 txtEmailId.getText().equals("") )
+            {
+            JOptionPane.showMessageDialog(this, "Please enter all the details");
+            return;
+            }
+            else{
+            
+                if(e.getTeamInfo()==null||e.getContactInfoPhoneNo()==null||e.getName()==null|| e.getContactInfoEmailId()==null ||e.getEmpId()==null ||e.getAge()==null || e.getPositionTitle()==null ||e.getLevel()==null||e.getContactInfoPhoneNo()==null)
+            {
+                continue;
+            }
             if(e.getEmpId().equals(txtEmployeeId.getText()))
             {
                 e.setName(txtName.getText());
+                if(txtStartDate.getText().matches("\\d{4}-\\d{2}-\\d{2}")){
+                    e.setStartDate(txtStartDate.getText());e.setGender(txtGender.getText());
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Please enter a valid date of format yyyy-mm-dd");
+                    return;
+                }
                 e.setAge(txtAge.getText());
-                e.setGender(txtGender.getText());
-                e.setLevel(txtLevel.getText());
-                e.setPositionTitle(txtPositionInfo.getText());
-                e.setContactInfoEmailId(txtEmailId.getText());
+                
+                if(txtEmailId.getText().contains("@"))
+                {
+                    e.setContactInfoEmailId(txtEmailId.getText());
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Entered email id is not valid");
+                return;
+                }
+                if(txtContactPhoneNo.getText().matches("\\d{10}"))
+                {
                 e.setContactInfoPhoneNo(txtContactPhoneNo.getText());
-                e.setStartDate(txtStartDate.getText());      
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Phone Number should not be empty and should contain 10 numbers");
+                return;
+                }
+                
+                if(txtLevel.getText().matches("[a-zA-Z]+"))
+                {e.setLevel(txtLevel.getText());}
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Level Info should contain only letters");
+                return;
+                }
+                
+                if(txtPositionInfo.getText().matches("[a-zA-Z]+"))
+                {
+                    e.setPositionTitle(txtPositionInfo.getText());
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Position Info should contain only letters");
+                return;
+                }
+                
+                if(txtTeamInfo.getText().matches("[a-zA-Z]+"))
+                {e.setTeamInfo(txtTeamInfo.getText());}
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Team Info should contain only letters");
+                return;
+                }
+                      
             }
-        }
-        refreshTable();
+            }
+            }
         
-        txtName.setText("");
-        txtEmployeeId.setText("");
-        txtAge.setText("");
-        txtGender.setText("");
-        txtStartDate.setText("");
-        txtLevel.setText("");
-        txtTeamInfo.setText("");
-        txtPositionInfo.setText("");
-        txtContactPhoneNo.setText("");
-        txtEmailId.setText("");
+        DefaultTableModel dm = (DefaultTableModel) tblEmp.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
+        
+        
+        DefaultTableModel tblModel = (DefaultTableModel)tblEmp.getModel();
+        for(Employee e: emplst.getEmpArray()){
+            tblModel.addRow(new Object[]{
+                e.getName(), 
+                e.getEmpId(), 
+                e.getAge(), 
+                e.getGender(),
+                e.getStartDate(), 
+                e.getLevel(), 
+                e.getTeamInfo(), 
+                e.getPositionTitle(), 
+                e.getContactInfoPhoneNo(),
+                e.getContactInfoEmailId()
+        });
     }//GEN-LAST:event_btnSaveEmpActionPerformed
-
+    }
     private void btnDeleteEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmpActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblEmp.getSelectedRow();
@@ -422,17 +514,21 @@ public class ViewJPanel extends javax.swing.JPanel {
         }
         emplst.setEmpArray(newEmpList);
         DefaultTableModel tblModel = (DefaultTableModel)tblEmp.getModel();
-        for(Employee c: emplst.getEmpArray()){
+        for(Employee e: emplst.getEmpArray()){
+            if(e.getTeamInfo()==null||e.getContactInfoPhoneNo()==null||e.getName()==null|| e.getContactInfoEmailId()==null ||e.getEmpId()==null ||e.getAge()==null || e.getPositionTitle()==null ||e.getLevel()==null||e.getContactInfoPhoneNo()==null)
+            {
+                continue;
+            }
             tblModel.addRow(new Object[]{
-                c.getName(), 
-                c.getEmpId(), 
-                c.getAge(), 
-                c.getGender(),
-                c.getStartDate(), 
-                c.getLevel(), 
-                c.getPositionTitle(), 
-                c.getContactInfoPhoneNo(), 
-                c.getContactInfoEmailId()});
+                e.getName(), 
+                e.getEmpId(), 
+                e.getAge(), 
+                e.getGender(),
+                e.getStartDate(), 
+                e.getLevel(), 
+                e.getPositionTitle(), 
+                e.getContactInfoPhoneNo(), 
+                e.getContactInfoEmailId()});
         }
          txtName.setText("");
          txtEmployeeId.setText("");
@@ -461,6 +557,12 @@ public class ViewJPanel extends javax.swing.JPanel {
             return;
         }
         for(Employee e: emplst.getEmpArray()){
+            
+//          e.getContactInfoPhoneNo().equalsIgnoreCase(Searchterm) ||e.getContactInfoPhoneNo().equalsIgnoreCase(Searchterm)
+            if(e.getTeamInfo()==null||e.getContactInfoPhoneNo()==null||e.getName()==null|| e.getContactInfoEmailId()==null ||e.getEmpId()==null ||e.getAge()==null || e.getPositionTitle()==null ||e.getLevel()==null||e.getContactInfoPhoneNo()==null)
+            {
+                continue;
+            }
             if(e.getName().equalsIgnoreCase(Searchterm)||e.getEmpId().equalsIgnoreCase(Searchterm) || e.getLevel().equalsIgnoreCase(Searchterm)|| e.getPositionTitle().equalsIgnoreCase(Searchterm)||e.getTeamInfo().equalsIgnoreCase(Searchterm)|| e.getContactInfoPhoneNo().equalsIgnoreCase(Searchterm) ||e.getContactInfoPhoneNo().equalsIgnoreCase(Searchterm))
             {
                 filteredEmployees.add(e);
@@ -499,6 +601,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         txtName.setText(tblEmp.getValueAt(tblEmp.getSelectedRow(), 0).toString());
         txtEmployeeId.setText(tblEmp.getValueAt(tblEmp.getSelectedRow(), 1).toString());
+        txtEmployeeId.setEnabled(false);
         txtAge.setText(tblEmp.getValueAt(tblEmp.getSelectedRow(), 2).toString());
         txtGender.setText(tblEmp.getValueAt(tblEmp.getSelectedRow(), 3).toString());
         txtStartDate.setText(tblEmp.getValueAt(tblEmp.getSelectedRow(), 4).toString());
@@ -511,12 +614,22 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_tblEmpMouseClicked
 
+    private void txtSearchTermKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchTermKeyReleased
+        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) tblEmp.getModel();
+//        String search = txtSearchTerm.getText().toLowerCase();
+//        TableRowSorter<DefaultTableModel> tablerow = new TableRowSorter<DefaultTableModel>(model);
+//        tblEmp.setRowSorter(tablerow);
+//        tablerow.setRowFilter(RowFilter.regexFilter(search));
+    }//GEN-LAST:event_txtSearchTermKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteEmp;
     private javax.swing.JButton btnSaveEmp;
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContactEmaild;
@@ -562,6 +675,11 @@ public class ViewJPanel extends javax.swing.JPanel {
             e.getPositionTitle()+
             e.getContactInfoPhoneNo()+
             e.getContactInfoEmailId());
+            if(e.getTeamInfo()==null||e.getContactInfoPhoneNo()==null||e.getName()==null|| e.getContactInfoEmailId()==null ||e.getEmpId()==null ||e.getAge()==null || e.getPositionTitle()==null ||e.getLevel()==null||e.getContactInfoPhoneNo()==null)
+            {
+                continue;
+            }
+            
             tablemodel.addRow(new Object[]{
             e.getName(),
             e.getEmpId(),
@@ -575,7 +693,9 @@ public class ViewJPanel extends javax.swing.JPanel {
             e.getContactInfoEmailId()
             });
                
-            }
+            
+        }
+        
     }
                 
 }

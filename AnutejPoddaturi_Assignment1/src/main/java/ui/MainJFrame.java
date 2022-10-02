@@ -120,18 +120,18 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         Employee em= new Employee();
-        ArrayList<Employee> existingEmployees = new ArrayList<Employee>();
+        ArrayList<Employee> existingEmployees = emplist.getEmpArray();
         existingEmployees.add(em);
         emplist.setEmpArray(existingEmployees);
-//        ArrayList<String> existingIds= new ArrayList<String>();
-//        for(Employee e:existingEmployees)
-//        {
-//            existingIds.add(e.getEmpId());
-//        }
+        ArrayList<String> existingIds= new ArrayList<String>();
+        for(Employee e:existingEmployees)
+        {
+            existingIds.add(e.getEmpId());
+        }
 
         ArrayList<Employee> employees = this.emplist.getEmpArray();
         for(Employee e: employees){
-            System.out.println("Inside create action<=========>"+e.getName()+
+            System.out.println("Inside create action<=========>"+existingEmployees.size()+"<--->"+e.getName()+
             e.getEmpId()+
             e.getAge()+
             e.getGender()+
@@ -153,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(viewPanel);
         ArrayList<Employee> employees = this.emplist.getEmpArray();
         for(Employee e: employees){
-            System.out.println(e.getName()+
+            System.out.println("Inside btn View Main Frame"+e.getName()+
             e.getEmpId()+
             e.getAge()+
             e.getGender()+

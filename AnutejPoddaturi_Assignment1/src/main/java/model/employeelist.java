@@ -27,9 +27,9 @@ public class employeelist {
     }
     
     public Employee addEmployee(){
-            Employee newemp = new Employee();
-            empArray.add(newemp);
-            return newemp;
+        Employee newemp = new Employee();
+        empArray.add(newemp);
+        return newemp;
     }
     public void deleteEmployee(Employee delemp)
     {

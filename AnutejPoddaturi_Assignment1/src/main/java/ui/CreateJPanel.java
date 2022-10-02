@@ -6,6 +6,7 @@ package ui;
 
 import java.awt.Image;
 import java.io.File;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -29,15 +30,10 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
 //    , ArrayList<String> existingIDs
-    public CreateJPanel(Employee em) {
+    public CreateJPanel(Employee em) 
+    {
         initComponents();
-//        this.emparray=emplst;
         this.sampleemp=em;
-//        this.existingID=existingIDs;
-//        System.out.println("Inside Create employee Jpanel"+emplst);
-//        private String name,empId,age,gender,startDate,level,teamInfo,positionTitle,contactInfoPhoneNo,contactInfoEmailId,empPhoto;
-//        Employee emp1= new Employee("foo","1","21","male","2121-21-21","junior","Alpha","junior","8919947616","foo@gmail.com","");
-//        emparray.add()
     }
 
     /**
@@ -342,6 +338,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 //        Validating field values:
 //      emparray.addEmployee();
 //        Employee emp= new Employee();
+
         if(txtName.getText().equals("") || txtEmployeeId.getText().equals("") || txtAge.getText().equals("") || 
                txtGender.getText().equals("") || txtStartDate.getText().equals("") || txtLevel.getText().equals("") ||
                 txtTeamInfo.getText().equals("") || txtPositionInfo.getText().equals("") || txtContactPhoneNo.getText().equals("") ||
@@ -350,53 +347,76 @@ public class CreateJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Please enter all the details");
         }
         else{
-        this.sampleemp.setName(txtName.getText());
-        this.sampleemp.setEmpId(txtEmployeeId.getText());
-        this.sampleemp.setAge(txtAge.getText());
-        this.sampleemp.setGender(txtGender.getText());
-        if(txtStartDate.getText().matches("\\d{4}-\\d{2}-\\d{2}")){
-            this.sampleemp.setStartDate(txtStartDate.getText());
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please enter a valid date");
-        }
-        this.sampleemp.setLevel(txtLevel.getText());
-        this.sampleemp.setTeamInfo(txtTeamInfo.getText());
-        this.sampleemp.setPositionTitle(txtPositionInfo.getText());
-        if(txtContactPhoneNo.getText().length()==10)
-        {
-            char[] phonenumchararray= txtContactPhoneNo.getText().toCharArray();
-            for(char chariter: phonenumchararray){
-                if(!Character.isDigit(chariter))
-                {
-                    check=false;
-                }
+            Boolean flag=true;
+        
+            this.sampleemp.setName(txtName.getText());
+//            for()
+//            {
+//                
+//            }
+
+//***Create validation to make sure the employeeid is unique
+            this.sampleemp.setEmpId(txtEmployeeId.getText());
+//            Employee Age
+            for(int i=0; i < txtAge.getText().length(); i++) {
+                    if(!Character.isDigit(txtAge.getText().charAt(i)))
+                    { flag = false; }
             }
-        
-        if(!check)
-        {
-            valid=false;
-            JOptionPane.showMessageDialog(this, "Entered Phone number is not valid");
-            return;
+            if(parseInt(txtAge.getText())<=0)
+            {
+                JOptionPane.showMessageDialog(this, "Please enter valid Age");
+                return;
+            }
+            else
+            {
+            this.sampleemp.setAge(txtAge.getText());
+            }
             
-        }
-        else{
-            this.sampleemp.setContactInfoPhoneNo(txtContactPhoneNo.getText());
-        }
-        }
+            this.sampleemp.setGender(txtGender.getText());
+            if(txtStartDate.getText().matches("\\d{4}-\\d{2}-\\d{2}")){
+                this.sampleemp.setStartDate(txtStartDate.getText());
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Please enter a valid date");
+                return;
+            }
+            this.sampleemp.setLevel(txtLevel.getText());
+            this.sampleemp.setTeamInfo(txtTeamInfo.getText());
+            this.sampleemp.setPositionTitle(txtPositionInfo.getText());
+            if(txtContactPhoneNo.getText().length()==10)
+            {
+                char[] phonenumchararray= txtContactPhoneNo.getText().toCharArray();
+                for(char chariter: phonenumchararray)
+                {
+                    if(!Character.isDigit(chariter))
+                    {
+                    check=false;
+                    }
+                }
         
-        if(!txtEmailId.getText().contains("@"))
-        {
-            JOptionPane.showMessageDialog(this, "Entered email id is not valid");
-            return;
-        }
-        else{
-            this.sampleemp.setContactInfoEmailId(txtEmailId.getText());
-        }
-        this.sampleemp.setEmpPhoto(imgPath);
-//        temporaryemplist.add(emp);
-//        emparray.setEmpArray(temporaryemplist);
-        JOptionPane.showMessageDialog(this, "Employee details are saved");
+                if(!check)
+                {
+                    valid=false;
+                    JOptionPane.showMessageDialog(this, "Entered Phone number is not valid");
+                    return;    
+                }
+                else
+                {
+                    this.sampleemp.setContactInfoPhoneNo(txtContactPhoneNo.getText());
+                }
+            }   
+        
+            if(!txtEmailId.getText().contains("@"))
+            {
+                JOptionPane.showMessageDialog(this, "Entered email id is not valid");
+                return;
+            }
+            else
+            {
+                this.sampleemp.setContactInfoEmailId(txtEmailId.getText());
+            }
+            this.sampleemp.setEmpPhoto(imgPath);
+            JOptionPane.showMessageDialog(this, "Employee details are saved");
         
             System.out.println("==============="+this.sampleemp.getName()+
             this.sampleemp.getEmpId()+
@@ -409,21 +429,21 @@ public class CreateJPanel extends javax.swing.JPanel {
             this.sampleemp.getContactInfoPhoneNo()+
             this.sampleemp.getContactInfoEmailId());
         
-        System.out.println(txtName.getText()+"-----"+this.sampleemp+"====="+this.emparray);
+            System.out.println(txtName.getText()+"-----"+this.sampleemp+"====="+this.emparray);
+        
         //resetting all the text field values
-        txtName.setText("");
-        txtAge.setText("");
-        txtEmployeeId.setText("");
-        txtContactPhoneNo.setText("");
-        txtGender.setText("");
-        txtLevel.setText("");
-        txtTeamInfo.setText("");
-        txtPositionInfo.setText("");
-        txtStartDate.setText("");
-        txtEmailId.setText("");
+            txtName.setText("");
+            txtAge.setText("");
+            txtEmployeeId.setText("");
+            txtContactPhoneNo.setText("");
+            txtGender.setText("");
+            txtLevel.setText("");
+            txtTeamInfo.setText("");
+            txtPositionInfo.setText("");
+            txtStartDate.setText("");
+            txtEmailId.setText("");
         
-        
-        }   
+            }   
     }//GEN-LAST:event_btnSaveActionPerformed
        catch(Exception e){
            System.out.println(e.getMessage());
@@ -432,17 +452,17 @@ public class CreateJPanel extends javax.swing.JPanel {
     }
     private void btnEmpImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpImageActionPerformed
         // TODO add your handling code here:
-        JFileChooser image_directory=new JFileChooser();
+        JFileChooser imageDirectory=new JFileChooser();
         
-        image_directory.setCurrentDirectory(new File("user.dir"));
+        imageDirectory.setCurrentDirectory(new File("user.dir"));
         
         FileNameExtensionFilter imageFormats= new FileNameExtensionFilter("All Pic","png","jpg");
-        image_directory.addChoosableFileFilter(imageFormats);
+        imageDirectory.addChoosableFileFilter(imageFormats);
         
-        int file_option= image_directory.showSaveDialog(null);
+        int file_option= imageDirectory.showSaveDialog(null);
         if(file_option==JFileChooser.APPROVE_OPTION )
         {
-             File imgEmpFile= image_directory.getSelectedFile();
+             File imgEmpFile= imageDirectory.getSelectedFile();
              imgPath= imgEmpFile.getAbsolutePath();
              System.out.println(imgPath);
              ImageIcon imageSelected= new ImageIcon(imgPath);
