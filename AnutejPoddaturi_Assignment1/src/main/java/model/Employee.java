@@ -19,20 +19,20 @@ public class Employee {
     
     //    Constructor to initialize objects and assign values to the data members
     
-    public Employee(String name, String empId, String age, String gender,String startDate, String level, String teamInfo, String positionTitle, String ContactInfoPhoneNo,String contactInfoEmailId, String empPhoto)
-    {
-    this.name=name;
-    this.empId=empId;
-    this.age=age;
-    this.gender=gender;
-    this.startDate=startDate;
-    this.level=level;
-    this.teamInfo=teamInfo;
-    this.positionTitle=positionTitle;
-    this.contactInfoPhoneNo=ContactInfoPhoneNo;
-    this.contactInfoEmailId=contactInfoEmailId;
-    this.empPhoto=empPhoto;
-    }
+//    public Employee(String name, String empId, String age, String gender,String startDate, String level, String teamInfo, String positionTitle, String ContactInfoPhoneNo,String contactInfoEmailId, String empPhoto)
+//    {
+//    this.name=name;
+//    this.empId=empId;
+//    this.age=age;
+//    this.gender=gender;
+//    this.startDate=startDate;
+//    this.level=level;
+//    this.teamInfo=teamInfo;
+//    this.positionTitle=positionTitle;
+//    this.contactInfoPhoneNo=ContactInfoPhoneNo;
+//    this.contactInfoEmailId=contactInfoEmailId;
+//    this.empPhoto=empPhoto;
+//    }
     
     //    Getter and Setter Methods for the Employee Data Members
 

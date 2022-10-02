@@ -23,14 +23,18 @@ public class CreateJPanel extends javax.swing.JPanel {
     Employee sampleemp;
     employeelist emparray;
     public boolean valid=true,check=true;
-    public String imgPath;
+    String imgPath;
+//    ArrayList<String> existingID;
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel(employeelist emplst) {
+//    , ArrayList<String> existingIDs
+    public CreateJPanel(Employee em) {
         initComponents();
-        this.emparray=emplst;
-        System.out.println("Inside Create employee Jpanel"+emplst);
+//        this.emparray=emplst;
+        this.sampleemp=em;
+//        this.existingID=existingIDs;
+//        System.out.println("Inside Create employee Jpanel"+emplst);
 //        private String name,empId,age,gender,startDate,level,teamInfo,positionTitle,contactInfoPhoneNo,contactInfoEmailId,empPhoto;
 //        Employee emp1= new Employee("foo","1","21","male","2121-21-21","junior","Alpha","junior","8919947616","foo@gmail.com","");
 //        emparray.add()
@@ -235,14 +239,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addGap(12, 12, 12)
-                                .addComponent(lblEmployeeId))
+                            .addComponent(lblName)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEmployeeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtEmployeeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEmployeeId)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblContactPhoneNo)
@@ -258,9 +261,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(btnEmpImage))
                     .addComponent(lblEmpPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAge)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAge))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,8 +341,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         
 //        Validating field values:
 //      emparray.addEmployee();
-        ArrayList<Employee> temporaryemplist=new ArrayList<Employee>();
-        Employee emp= new Employee();
+//        Employee emp= new Employee();
         if(txtName.getText().equals("") || txtEmployeeId.getText().equals("") || txtAge.getText().equals("") || 
                txtGender.getText().equals("") || txtStartDate.getText().equals("") || txtLevel.getText().equals("") ||
                 txtTeamInfo.getText().equals("") || txtPositionInfo.getText().equals("") || txtContactPhoneNo.getText().equals("") ||
@@ -348,19 +350,19 @@ public class CreateJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Please enter all the details");
         }
         else{
-        emp.setName(txtName.getText());
-        emp.setEmpId(txtEmployeeId.getText());
-        emp.setAge(txtAge.getText());
-        emp.setGender(txtGender.getText());
+        this.sampleemp.setName(txtName.getText());
+        this.sampleemp.setEmpId(txtEmployeeId.getText());
+        this.sampleemp.setAge(txtAge.getText());
+        this.sampleemp.setGender(txtGender.getText());
         if(txtStartDate.getText().matches("\\d{4}-\\d{2}-\\d{2}")){
-            emp.setStartDate(txtStartDate.getText());
+            this.sampleemp.setStartDate(txtStartDate.getText());
         }
         else{
             JOptionPane.showMessageDialog(this, "Please enter a valid date");
         }
-        emp.setLevel(txtLevel.getText());
-        emp.setTeamInfo(txtTeamInfo.getText());
-        emp.setPositionTitle(txtPositionInfo.getText());
+        this.sampleemp.setLevel(txtLevel.getText());
+        this.sampleemp.setTeamInfo(txtTeamInfo.getText());
+        this.sampleemp.setPositionTitle(txtPositionInfo.getText());
         if(txtContactPhoneNo.getText().length()==10)
         {
             char[] phonenumchararray= txtContactPhoneNo.getText().toCharArray();
@@ -379,7 +381,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             
         }
         else{
-            emp.setContactInfoPhoneNo(txtContactPhoneNo.getText());
+            this.sampleemp.setContactInfoPhoneNo(txtContactPhoneNo.getText());
         }
         }
         
@@ -389,16 +391,25 @@ public class CreateJPanel extends javax.swing.JPanel {
             return;
         }
         else{
-            emp.setContactInfoEmailId(txtEmailId.getText());
+            this.sampleemp.setContactInfoEmailId(txtEmailId.getText());
         }
-        emp.setEmpPhoto(imgPath);
-        temporaryemplist.add(emp);
-        emparray.setEmpArray(temporaryemplist);
+        this.sampleemp.setEmpPhoto(imgPath);
+//        temporaryemplist.add(emp);
+//        emparray.setEmpArray(temporaryemplist);
         JOptionPane.showMessageDialog(this, "Employee details are saved");
         
+            System.out.println("==============="+this.sampleemp.getName()+
+            this.sampleemp.getEmpId()+
+            this.sampleemp.getAge()+
+            this.sampleemp.getGender()+
+            this.sampleemp.getStartDate()+
+            this.sampleemp.getLevel()+
+            this.sampleemp.getTeamInfo()+
+            this.sampleemp.getPositionTitle()+
+            this.sampleemp.getContactInfoPhoneNo()+
+            this.sampleemp.getContactInfoEmailId());
         
-        
-        System.out.println(txtName.getText()+"-----"+emp);
+        System.out.println(txtName.getText()+"-----"+this.sampleemp+"====="+this.emparray);
         //resetting all the text field values
         txtName.setText("");
         txtAge.setText("");
@@ -409,6 +420,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtTeamInfo.setText("");
         txtPositionInfo.setText("");
         txtStartDate.setText("");
+        txtEmailId.setText("");
         
         
         }   

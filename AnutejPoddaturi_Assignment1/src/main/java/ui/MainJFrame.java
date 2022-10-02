@@ -123,16 +123,48 @@ public class MainJFrame extends javax.swing.JFrame {
         ArrayList<Employee> existingEmployees = new ArrayList<Employee>();
         existingEmployees.add(em);
         emplist.setEmpArray(existingEmployees);
-        CreateJPanel createjpanel = new CreateJPanel(emplist);
+//        ArrayList<String> existingIds= new ArrayList<String>();
+//        for(Employee e:existingEmployees)
+//        {
+//            existingIds.add(e.getEmpId());
+//        }
+
+        ArrayList<Employee> employees = this.emplist.getEmpArray();
+        for(Employee e: employees){
+            System.out.println("Inside create action<=========>"+e.getName()+
+            e.getEmpId()+
+            e.getAge()+
+            e.getGender()+
+            e.getStartDate()+
+            e.getLevel()+
+            e.getTeamInfo()+
+            e.getPositionTitle()+
+            e.getContactInfoPhoneNo()+
+            e.getContactInfoEmailId());
+    }                                     
+        CreateJPanel createjpanel = new CreateJPanel(em);
         splitPane.setRightComponent(createjpanel);
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        System.out.println(emplist);
         ViewJPanel viewPanel = new ViewJPanel(emplist);
         splitPane.setRightComponent(viewPanel);
+        ArrayList<Employee> employees = this.emplist.getEmpArray();
+        for(Employee e: employees){
+            System.out.println(e.getName()+
+            e.getEmpId()+
+            e.getAge()+
+            e.getGender()+
+            e.getStartDate()+
+            e.getLevel()+
+            e.getTeamInfo()+
+            e.getPositionTitle()+
+            e.getContactInfoPhoneNo()+
+            e.getContactInfoEmailId());
     }//GEN-LAST:event_btnViewActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

@@ -22,7 +22,7 @@ public class employeelist {
     }
     
     public employeelist(){
-        this.empArray= new ArrayList<Employee>();
+        empArray= new ArrayList<Employee>();
         
     }
     

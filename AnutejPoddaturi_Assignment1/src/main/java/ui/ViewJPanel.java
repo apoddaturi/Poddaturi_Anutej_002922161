@@ -17,7 +17,7 @@ import model.employeelist;
 public class ViewJPanel extends javax.swing.JPanel {
 
         employeelist emplst;
-        private String searchterm="";
+        Employee sampleemp;
     /**
      * Creates new form ViewJPanel
      * @param emplst
@@ -26,6 +26,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         initComponents();
         this.emplst=emplst;
         System.out.println("Inside View Constructor"+emplst);
+//        txtEmployeeId.setEnabled(false);
         refreshTable();
     }
 
@@ -259,8 +260,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnSearch)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(199, 199, 199)
                 .addComponent(btnSaveEmp)
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteEmp)
@@ -371,7 +372,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnSaveEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEmpActionPerformed
         // TODO add your handling code here:
-        for(Employee e: emplst.getEmpArray()){
+        for(Employee e: this.emplst.getEmpArray()){
             if(e.getEmpId().equals(txtEmployeeId.getText()))
             {
                 e.setName(txtName.getText());
@@ -401,18 +402,38 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void btnDeleteEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEmpActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = tblEmp.getSelectedRow();
-        if(selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this,"please select a row to delete");
-            return;
-        }
+        ArrayList<Employee> newEmpList = new ArrayList<Employee>();
         DefaultTableModel model = (DefaultTableModel) tblEmp.getModel();
-        Employee selectedEmp = (Employee) model.getValueAt(selectedRowIndex,0); 
-        emplst.deleteEmployee(selectedEmp);
-         
-        JOptionPane.showMessageDialog(this,"Employee Details signs deleted");
-        
-        refreshTable();
-        
+        String selectedEmpId =  (String )model.getValueAt(selectedRowIndex, 1);
+        Employee Selectedemp = new Employee();
+        System.out.println("selected serial number--"+selectedEmpId);
+        for(Employee e: emplst.getEmpArray()){
+            if(e.getEmpId().equals(selectedEmpId)){
+                Selectedemp = e;
+            }else{
+                newEmpList.add(e);
+            }
+        }
+        DefaultTableModel dm = (DefaultTableModel) tblEmp.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
+        }
+        emplst.setEmpArray(newEmpList);
+        DefaultTableModel tblModel = (DefaultTableModel)tblEmp.getModel();
+        for(Employee c: emplst.getEmpArray()){
+            tblModel.addRow(new Object[]{
+                c.getName(), 
+                c.getEmpId(), 
+                c.getAge(), 
+                c.getGender(),
+                c.getStartDate(), 
+                c.getLevel(), 
+                c.getPositionTitle(), 
+                c.getContactInfoPhoneNo(), 
+                c.getContactInfoEmailId()});
+        }
          txtName.setText("");
          txtEmployeeId.setText("");
          txtAge.setText("");
@@ -525,24 +546,35 @@ public class ViewJPanel extends javax.swing.JPanel {
     private void refreshTable() {
         
         DefaultTableModel tablemodel= (DefaultTableModel) tblEmp.getModel();
-        tablemodel.setRowCount(0);
-        System.out.println(emplst+searchterm +"===="+"refreshing Table");
-       
-        for(Employee e: emplst.getEmpArray()){
-                Object[] tablerow = new Object[10];
-            
-            tablerow[0]=e.getName();
-            tablerow[1]=e.getEmpId();
-            tablerow[2]=e.getAge();
-            tablerow[3]=e.getGender();
-            tablerow[4]=e.getStartDate();
-            tablerow[5]=e.getLevel();
-            tablerow[6]=e.getTeamInfo();
-            tablerow[7]=e.getPositionTitle();
-            tablerow[8]=e.getContactInfoPhoneNo();
-            tablerow[9]=e.getContactInfoEmailId();
-            
-            tablemodel.addRow(tablerow);
+        ArrayList<Employee> employees = this.emplst.getEmpArray();
+        
+//        tablemodel.setRowCount(0);
+        System.out.println(employees +"===="+"refreshing Table");
+      
+        for(Employee e: employees){
+            System.out.println(e.getName()+
+            e.getEmpId()+
+            e.getAge()+
+            e.getGender()+
+            e.getStartDate()+
+            e.getLevel()+
+            e.getTeamInfo()+
+            e.getPositionTitle()+
+            e.getContactInfoPhoneNo()+
+            e.getContactInfoEmailId());
+            tablemodel.addRow(new Object[]{
+            e.getName(),
+            e.getEmpId(),
+            e.getAge(),
+            e.getGender(),
+            e.getStartDate(),
+            e.getLevel(),
+            e.getTeamInfo(),
+            e.getPositionTitle(),
+            e.getContactInfoPhoneNo(),
+            e.getContactInfoEmailId()
+            });
+               
             }
     }
                 
