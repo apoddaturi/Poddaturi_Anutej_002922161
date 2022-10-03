@@ -22,11 +22,11 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    EmployeeDetails details;
+    EmployeeDetails emplst;
     String img_Path;
     public CreateJPanel(EmployeeDetails details ) {
         initComponents();
-        this.details = details;
+        this.emplst = details;
         
     }
     
@@ -217,14 +217,16 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
+        boolean flag=true;
         if(txtName.getText().equals("")||txtEmployeeID.getText().equals("")||txtAge.getText().equals("")||txtGender.getText().equals("")||txtStartDate.getText().equals("")||txtLevel.getText().equals("")||txtStartDate.getText().equals("")||txtLevel.getText().equals("")||txtTeamInfo.getText().equals("")||txtPositionTitle.getText().equals("")||txtCellNumber.getText().equals("")||txtEmailAddress.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this,"Please fill all the details");
+            return;
          
         }
         else
         {
+        
         String name = txtName.getText();
         String employeeid = txtEmployeeID.getText();
         int age = Integer.parseInt(txtAge.getText());
@@ -236,24 +238,94 @@ public class CreateJPanel extends javax.swing.JPanel {
         String cellphonenumber = txtCellNumber.getText();
         String emailaddress = txtEmailAddress.getText();
         
-        HumanResources details = this.details.addNewEmployee();
+        HumanResources details = this.emplst.addNewEmployee();
+        
+        
         
         details.setName(name);
         details.setEmployeeid(employeeid);
+        if(age>0){
         details.setAge(age);
-        details.setGender(gender);
-        details.setStartdate(startdate);
+        }
+        else{
+            flag=false;
+            JOptionPane.showMessageDialog(this,"Age can only be positive");
+            this.emplst.deleteEmployee(details);
+            return;
+        }
+        if(gender.matches("[a-zA-Z]+"))
+        {
+            details.setGender(gender);
+        }
+        else{
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Gender can only have alphabets");
+            return;
+        }
+        if(startdate.matches("\\d{4}-\\d{2}-\\d{2}"))
+        {details.setStartdate(startdate);}
+        else{
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Start Date can only be of format YYYY-MM-DD");
+            return;
+            
+        }
+        if(level.matches("[a-zA-Z]+"))
+        {
         details.setLevel(level);
+        }
+        else{
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Level can only have alphabets");
+            return;
+        }
+        if(teaminfo.matches("[a-zA-Z]+"))
+        {
         details.setTeaminfo(teaminfo);
+        }
+        else{
+        this.emplst.deleteEmployee(details);
+        JOptionPane.showMessageDialog(this,"Team can only have alphabets");
+            return;
+        }
+        if(teaminfo.matches("[a-zA-Z]+"))
+        {
         details.setPositiontitle(positiontitle);
-        details.setCellphonenumber(cellphonenumber);
-        details.setEmailaddress(emailaddress);
+        }
+        else{
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Position can only have alphabets");
+            return;
+        }
+        if(cellphonenumber.matches("\\d{10}"))
+        {details.setCellphonenumber(cellphonenumber);}
+        else{
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Please enter valid phone number with 10 digits");
+            return;
+        }
+        if(emailaddress.contains("@"))
+        {details.setEmailaddress(emailaddress);}
+        else
+        {
+            this.emplst.deleteEmployee(details);
+            JOptionPane.showMessageDialog(this,"Email should be of correct format");
+            return;
+        }
             String img_path = null;
         details.setImage(img_path);
         
-        
-         JOptionPane.showMessageDialog(this,"New Employee details added.");
+                if(!flag)
+                        {
+                            this.emplst.deleteEmployee(details);
+                        }
          
+                JOptionPane.showMessageDialog(this,"New Employee details added.");
+         
+                }
+        
+        
+        
          txtName.setText("");
          txtEmployeeID.setText("");
          txtAge.setText("");
@@ -264,9 +336,6 @@ public class CreateJPanel extends javax.swing.JPanel {
          txtPositionTitle.setText("");
          txtCellNumber.setText("");
          txtEmailAddress.setText("");
-         
-         
-                }
          
          
         
