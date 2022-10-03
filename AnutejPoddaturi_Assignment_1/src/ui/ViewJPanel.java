@@ -72,8 +72,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
-        btnPhoto = new javax.swing.JButton();
-        lblPhoto = new javax.swing.JLabel();
         lblSearch = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
@@ -84,17 +82,17 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         tblEmpProf.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title", "Cell Phone Number", "Email Address", "Image"
+                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title", "Cell Phone Number", "Email Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -148,13 +146,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnPhoto.setText("Photo");
-        btnPhoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPhotoActionPerformed(evt);
-            }
-        });
-
         lblSearch.setText("Search");
 
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -187,11 +178,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPhoto)
-                            .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(179, 179, 179)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblName)
                             .addComponent(lblEmailAddress)
@@ -285,12 +272,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmailAddress)
-                            .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btnPhoto)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 24, Short.MAX_VALUE))
         );
 
@@ -520,27 +502,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_tblEmpProfMouseClicked
 
-    private void btnPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhotoActionPerformed
-        // TODO add your handling code here:
-        JFileChooser img_dir=new JFileChooser();
-        
-        img_dir.setCurrentDirectory(new File("user.dir"));
-        
-        FileNameExtensionFilter imgFormat= new FileNameExtensionFilter("All Pic","png","jpg");
-        img_dir.addChoosableFileFilter(imgFormat);
-        
-        int file_option= img_dir.showSaveDialog(null);
-        if(file_option==JFileChooser.APPROVE_OPTION )
-        {
-             File imgEmployeeFile= img_dir.getSelectedFile();
-             img_Path = imgEmployeeFile.getAbsolutePath();
-             System.out.println(img_Path);
-             ImageIcon imgSelected= new ImageIcon(img_Path);
-             Image img= imgSelected.getImage().getScaledInstance(lblPhoto.getWidth(),lblPhoto.getHeight(), Image.SCALE_SMOOTH);
-             lblPhoto.setIcon(new ImageIcon(img));
-        }
-    }//GEN-LAST:event_btnPhotoActionPerformed
-
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblEmpProf.getModel();
@@ -561,7 +522,6 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnPhoto;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
@@ -571,7 +531,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblPositionTitle;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblStartDate;
