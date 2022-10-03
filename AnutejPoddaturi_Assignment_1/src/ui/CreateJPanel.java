@@ -217,7 +217,6 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        boolean flag=true;
         if(txtName.getText().equals("")||txtEmployeeID.getText().equals("")||txtAge.getText().equals("")||txtGender.getText().equals("")||txtStartDate.getText().equals("")||txtLevel.getText().equals("")||txtStartDate.getText().equals("")||txtLevel.getText().equals("")||txtTeamInfo.getText().equals("")||txtPositionTitle.getText().equals("")||txtCellNumber.getText().equals("")||txtEmailAddress.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this,"Please fill all the details");
@@ -248,7 +247,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         details.setAge(age);
         }
         else{
-            flag=false;
             JOptionPane.showMessageDialog(this,"Age can only be positive");
             this.emplst.deleteEmployee(details);
             return;
@@ -315,12 +313,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             String img_path = null;
         details.setImage(img_path);
         
-                if(!flag)
-                        {
-                            this.emplst.deleteEmployee(details);
-                        }
-         
-                JOptionPane.showMessageDialog(this,"New Employee details added.");
+        JOptionPane.showMessageDialog(this,"New Employee details added.");
          
                 }
         

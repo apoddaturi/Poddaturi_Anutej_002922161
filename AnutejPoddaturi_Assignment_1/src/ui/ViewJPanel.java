@@ -364,31 +364,144 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblEmpProf.getModel();
-        
-        int selectedRowIndex = tblEmpProf.getSelectedRow();
-        if(selectedRowIndex>=0){
-           model.setValueAt(txtName.getText(),selectedRowIndex,0);
-           model.setValueAt(txtEmployeeID.getText(),selectedRowIndex,1);
-           model.setValueAt(txtAge.getText(),selectedRowIndex,2);
-           model.setValueAt(txtGender.getText(),selectedRowIndex,3);
-           model.setValueAt(txtStartDate.getText(),selectedRowIndex,4);
-           model.setValueAt(txtLevel.getText(),selectedRowIndex,5);
-           model.setValueAt(txtTeamInfo.getText(),selectedRowIndex,6);
-           model.setValueAt(txtPositionTitle.getText(),selectedRowIndex,7);
-           model.setValueAt(txtCellNumber.getText(),selectedRowIndex,8);
-           model.setValueAt(txtEmailAddress.getText(),selectedRowIndex,9);
-           model.setValueAt(lblPhoto.getIcon(),selectedRowIndex,10);
-        }
-        else
-        {
-             JOptionPane.showMessageDialog(this,"Please select a row to Update");
+//        DefaultTableModel model = (DefaultTableModel) tblEmpProf.getModel();
+//        
+//        int selectedRowIndex = tblEmpProf.getSelectedRow();
+//        if(selectedRowIndex>=0){
+//           model.setValueAt(txtName.getText(),selectedRowIndex,0);
+//           model.setValueAt(txtEmployeeID.getText(),selectedRowIndex,1);
+//           model.setValueAt(txtAge.getText(),selectedRowIndex,2);
+//           model.setValueAt(txtGender.getText(),selectedRowIndex,3);
+//           model.setValueAt(txtStartDate.getText(),selectedRowIndex,4);
+//           model.setValueAt(txtLevel.getText(),selectedRowIndex,5);
+//           model.setValueAt(txtTeamInfo.getText(),selectedRowIndex,6);
+//           model.setValueAt(txtPositionTitle.getText(),selectedRowIndex,7);
+//           model.setValueAt(txtCellNumber.getText(),selectedRowIndex,8);
+//           model.setValueAt(txtEmailAddress.getText(),selectedRowIndex,9);
+//           model.setValueAt(lblPhoto.getIcon(),selectedRowIndex,10);
+//        }
+//        else
+//        {
+//             JOptionPane.showMessageDialog(this,"Please select a row to Update");
+//            
+//        }
+//        
             
+
+            for(HumanResources e: this.details.getDetails()){
+            if(txtName.getText().equals("") || txtEmployeeID.getText().equals("") || txtAge.getText().equals("") || 
+               txtGender.getText().equals("") || txtStartDate.getText().equals("") || txtLevel.getText().equals("") ||
+                txtTeamInfo.getText().equals("") || txtPositionTitle.getText().equals("") || txtCellNumber.getText().equals("") ||
+                 txtEmailAddress.getText().equals("") )
+            {
+            JOptionPane.showMessageDialog(this, "Please enter all the details");
+            return;
+            }
+            else{
+            
+                if(e.getEmailaddress()==null||e.getName()==null||e.getEmployeeid()==null|| e.getGender()==null ||e.getStartdate()==null ||e.getLevel()==null || e.getTeaminfo()==null ||e.getPositiontitle()==null||e.getCellphonenumber()==null)
+            {
+                continue;
+            }
+            if(e.getEmployeeid().equals(txtEmployeeID.getText()))
+            {
+                e.setName(txtName.getText());
+                if(txtStartDate.getText().matches("\\d{4}-\\d{2}-\\d{2}")){
+                    e.setStartdate(txtStartDate.getText());
+                    
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Please enter a valid date of format yyyy-mm-dd");
+                    return;
+                }
+                if(txtGender.getText().matches("[a-zA-Z]+"))
+                {e.setGender(txtGender.getText());}
+                else{
+                    JOptionPane.showMessageDialog(this, "Gender should only contain alphabets");
+                return;
+                
+                }
+                if(txtAge.getText().matches("[0-9]+"))
+                {e.setAge(Integer.parseInt(txtAge.getText()));
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Age should only be numbers");
+                return;
+                }
+                if(txtEmailAddress.getText().contains("@"))
+                {
+                    e.setEmailaddress(txtEmailAddress.getText());
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Entered email id is not valid");
+                return;
+                }
+                if(txtCellNumber.getText().matches("\\d{10}"))
+                {
+                e.setCellphonenumber(txtCellNumber.getText());
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Phone Number should not be empty and should contain 10 numbers");
+                return;
+                }
+                
+                if(txtLevel.getText().matches("[a-zA-Z]+"))
+                {e.setLevel(txtLevel.getText());}
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Level Info should contain only letters");
+                return;
+                }
+                
+                if(txtPositionTitle.getText().matches("[a-zA-Z]+"))
+                {
+                    e.setPositiontitle(txtPositionTitle.getText());
+                }
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Position Info should contain only letters");
+                return;
+                }
+                
+                if(txtTeamInfo.getText().matches("[a-zA-Z]+"))
+                {e.setTeaminfo(txtTeamInfo.getText());}
+                else
+                {
+                JOptionPane.showMessageDialog(this, "Team Info should contain only letters");
+                return;
+                }
+                      
+            }
+            }
+            }
+        
+        DefaultTableModel dm = (DefaultTableModel) tblEmpProf.getModel();
+        int rowCount = dm.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dm.removeRow(i);
         }
         
         
+        DefaultTableModel tblModel = (DefaultTableModel)tblEmpProf.getModel();
+        for(HumanResources e: details.getDetails()){
+            tblModel.addRow(new Object[]{
+                e.getName(), 
+                e.getEmployeeid(), 
+                e.getAge(), 
+                e.getGender(),
+                e.getStartdate(), 
+                e.getLevel(), 
+                e.getTeaminfo(), 
+                e.getPositiontitle(), 
+                e.getCellphonenumber(),
+                e.getEmailaddress()
+        });
     }//GEN-LAST:event_btnUpdateActionPerformed
-
+    }
     private void tblEmpProfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpProfMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblEmpProf.getModel();
@@ -403,13 +516,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtPositionTitle.setText(tblEmpProf.getValueAt(tblEmpProf.getSelectedRow(), 7).toString());
         txtCellNumber.setText(tblEmpProf.getValueAt(tblEmpProf.getSelectedRow(), 8).toString());
         txtEmailAddress.setText(tblEmpProf.getValueAt(tblEmpProf.getSelectedRow(), 9).toString());
-        
-        
-        
-        
-        
-
-        
+       
         
     }//GEN-LAST:event_tblEmpProfMouseClicked
 
@@ -496,7 +603,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             row[3] = emp.getGender();
             row[4] = emp.getStartdate();
             row[5] = emp.getLevel();
-            row[6] = emp.getAge();
+            row[6] = emp.getTeaminfo();
             row[7] = emp.getPositiontitle();
             row[8] = emp.getCellphonenumber();
             row[9] = emp.getEmailaddress();
