@@ -12,3 +12,13 @@ This repo is for INFO 5100 assignments, as part of the assignment 1 we are suppo
 To run the project clone the project locally and open it in the apache netbeans or any ide.
 
 After Opening it an IDE we can run it and see the application.
+
+# Operations 
+
+Using the application we are able to perform following operations:
+
+1.  create new empployee record.
+2.  View the created employee records.
+3.  Update the existing Employee Records.
+4.  Delete the existing Employee Records.
+5.  Search Employee records on various fields.
