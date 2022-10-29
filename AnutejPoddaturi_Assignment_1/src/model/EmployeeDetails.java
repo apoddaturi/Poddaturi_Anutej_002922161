@@ -31,7 +31,6 @@ public class EmployeeDetails {
             HumanResources newEmployee = new HumanResources();
             details.add(newEmployee);
             return newEmployee;
-            
         }
         public void deleteEmployee(HumanResources emp) {
             details.remove(emp); 
