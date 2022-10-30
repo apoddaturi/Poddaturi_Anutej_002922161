@@ -13,6 +13,10 @@ To run the project clone the project locally and open it in the apache netbeans 
 
 After Opening it an IDE we can run it and see the application.
 
+To clone you need to change to the directory in bash and run the below command:
+
+``` git clone https://github.com/apoddaturi/Poddaturi_Anutej_002922161.git ```
+
 # Operations 
 
 Using the application we are able to perform following operations:
