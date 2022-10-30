@@ -8,7 +8,7 @@ package ui;
 
 /**
  *
- * @author podda
+ * @author anutej
  */
 public class PatientFrame extends javax.swing.JFrame {
 

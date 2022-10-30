@@ -6,7 +6,7 @@ package ui;
 
 /**
  *
- * @author podda
+ * @author anutej
  */
 public class DoctorFrame extends javax.swing.JFrame {
 

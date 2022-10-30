@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author podda
+ * @author anutej
  */
 public class AddCommunityPanel extends javax.swing.JPanel {
 
@@ -23,9 +23,10 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     public static List<Community> communities;
     DefaultTableModel tableModel;
     static ArrayList<Community> communityList = new ArrayList<Community>();
+
     public AddCommunityPanel() {
         initComponents();
-        tableModel = (DefaultTableModel)tableCommunityDetails.getModel();
+        tableModel = (DefaultTableModel) tableCommunityDetails.getModel();
         loadComboBoxData();
     }
 
@@ -47,16 +48,19 @@ public class AddCommunityPanel extends javax.swing.JPanel {
         btnAddCommunity = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCommunityDetails = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        btnViewCommunity = new javax.swing.JButton();
+        btnEditCommunity = new javax.swing.JButton();
         btnUpdateCommunity = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCommunityName_U = new javax.swing.JTextField();
+        txtZipCode_U = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(188, 151, 28));
+        setBackground(new java.awt.Color(220, 175, 35));
 
-        lblCommunityName.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunityName.setText("Community Name");
 
-        lblSelectCity.setBackground(new java.awt.Color(255, 255, 255));
-        lblSelectCity.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectCity.setText("Select City");
 
         cmbBoxSelectCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -66,10 +70,9 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             }
         });
 
-        lblZipCode.setForeground(new java.awt.Color(255, 255, 255));
         lblZipCode.setText("Zip Code");
 
-        btnAddCommunity.setBackground(new java.awt.Color(67, 104, 227));
+        btnAddCommunity.setBackground(new java.awt.Color(35, 80, 220));
         btnAddCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnAddCommunity.setText("Add Community");
         btnAddCommunity.addActionListener(new java.awt.event.ActionListener() {
@@ -86,25 +89,42 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                 "Community Name", "ZipCode", "City"
             }
         ));
-        tableCommunityDetails.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableCommunityDetailsMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tableCommunityDetails);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Community Admin - Add Community");
+        btnViewCommunity.setBackground(new java.awt.Color(35, 80, 220));
+        btnViewCommunity.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewCommunity.setText("View");
+        btnViewCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCommunityActionPerformed(evt);
+            }
+        });
 
-        btnUpdateCommunity.setBackground(new java.awt.Color(67, 104, 227));
+        btnEditCommunity.setBackground(new java.awt.Color(35, 80, 220));
+        btnEditCommunity.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditCommunity.setText("Edit");
+        btnEditCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditCommunityActionPerformed(evt);
+            }
+        });
+
+        btnUpdateCommunity.setBackground(new java.awt.Color(35, 80, 220));
         btnUpdateCommunity.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdateCommunity.setText("Update Community");
+        btnUpdateCommunity.setText("Update");
         btnUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateCommunityActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Community");
+
+        jLabel3.setText("Zip Code");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Community Admin - Community Details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -113,42 +133,47 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                                .addComponent(lblSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(cmbBoxSelectCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAddCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditCommunity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(67, 67, 67)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblCommunityName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cmbBoxSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtCommunityName_U, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                    .addComponent(txtZipCode_U)))
+                            .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel1)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(223, 223, 223)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,11 +187,22 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                             .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddCommunity)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnViewCommunity)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEditCommunity)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUpdateCommunity)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,78 +212,147 @@ public class AddCommunityPanel extends javax.swing.JPanel {
 
     private void btnAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCommunityActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             String communityName = txtCommunityName.getText();
-        String zipCode = txtZipCode.getText();
-        String city = (String)cmbBoxSelectCity.getSelectedItem();
-        System.out.println(city);
-        if(communityName.isEmpty() || zipCode.isEmpty() || city.isEmpty()){
-            JOptionPane.showMessageDialog(this,
+            String zipCode = txtZipCode.getText();
+            String city = (String) cmbBoxSelectCity.getSelectedItem();
+            System.out.println(city);
+            if (communityName.isEmpty() || zipCode.isEmpty() || city.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
                         "Enter all Fields",
-                        "Try Again", 
+                        "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            Community community = new Community(communityName, Long.parseLong(zipCode), city);
-            communityList.add(community);
-            for(City c: AddCityPanel.cityList) {
-            if(c.getCityName().equals(city)) {
-                communities = c.getCommunities();
-                communities.add(community);
-                c.setCommunities(communities);  
-            }
-            else {
-                communities = new ArrayList();
-            }
-        }
-            Object[] data = {communityName, zipCode, city};
-            tableModel.addRow(data);
-            //System.out.println(communityList.size());
-            JOptionPane.showMessageDialog(this,
+            } else {
+                Community community = new Community(communityName, Long.parseLong(zipCode), city);
+                communityList.add(community);
+                for (City c : AddCityPanel.cityList) {
+                    if (c.getCityName().equals(city)) {
+                        communities = c.getCommunities();
+                        communities.add(community);
+                        c.setCommunities(communities);
+                    } else {
+                        communities = new ArrayList();
+                    }
+                }
+                Object[] data = {communityName, zipCode, city};
+                tableModel.addRow(data);
+                //System.out.println(communityList.size());
+                JOptionPane.showMessageDialog(this,
                         "Community Data Saved",
-                        "Success", 
+                        "Success",
                         JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
         }
-        }
-        catch(Exception ex){
-            
-        }      
     }//GEN-LAST:event_btnAddCommunityActionPerformed
+
+    private void btnViewCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCommunityActionPerformed
+        // TODO add your handling code here:
+        try {
+            int row = tableCommunityDetails.getSelectedRow();
+            String community = tableModel.getValueAt(row, 0).toString();
+            String zipcode = tableModel.getValueAt(row, 1).toString();
+            String city = tableModel.getValueAt(row, 2).toString();
+
+//            cmbBoxSelectCity_U.removeAllItems();
+////           for(City c: AddCityPanel.cityList){
+//            cmbBoxSelectCity_U.addItem(city);
+////           }
+////            cmbBoxSelectCity_U.getItemAt(row);
+//            cmbBoxSelectCity_U.setEnabled(false);
+            txtCommunityName_U.setText(community);
+            txtCommunityName_U.setEditable(false);
+
+            txtZipCode_U.setText(zipcode);
+            txtZipCode_U.setEditable(false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+        }
+    }//GEN-LAST:event_btnViewCommunityActionPerformed
+
+    private void btnEditCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCommunityActionPerformed
+        // TODO add your handling code here:
+        txtCommunityName_U.setEditable(true);
+        txtZipCode_U.setEditable(true);
+//        cmbBoxSelectCity_U.setEnabled(true);
+//        cmbBoxSelectCity_U.removeAllItems();
+//           for(City c: AddCityPanel.cityList){
+//            cmbBoxSelectCity_U.addItem(c.getCityName());
+//           }
+    }//GEN-LAST:event_btnEditCommunityActionPerformed
 
     private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
         // TODO add your handling code here:
-        
-        
+        try {
+            int row = tableCommunityDetails.getSelectedRow();
+            String community = txtCommunityName_U.getText();
+            String zipcode = txtZipCode_U.getText();
+            //String city = cmbBoxSelectCity_U.getSelectedItem().toString();
+
+            if (community.isEmpty() || zipcode.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                        "Enter all Fields",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            } else {
+                Community selectedCommunity = communityList.get(row);
+                String city = selectedCommunity.getCityName();
+                Community updatedCommunity = new Community(community, Long.parseLong(zipcode), city);
+                communityList.remove(row);
+                communityList.add(row, updatedCommunity);
+                tableModel.removeRow(row);
+                Object[] data = {community, zipcode, city};
+                tableModel.insertRow(row, data);
+                for (City c : AddCityPanel.cityList) {
+                    if (c.getCityName().equals(city)) {
+                        //communities = c.getCommunities();
+                        for (Community comm : c.getCommunities()) {
+                            if (comm.getCommunityName().equals(selectedCommunity.getCommunityName())) {
+                                comm.setCommunityName(community);
+                                comm.setCityName(city);
+                                comm.setZipCode(Long.parseLong(zipcode));
+                                break;
+                            }
+                        }
+//                    communities.add(updatedCommunity);
+//                    c.setCommunities(communities); 
+//                    break;
+                    } else {
+                        communities = new ArrayList();
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+        }
+
     }//GEN-LAST:event_btnUpdateCommunityActionPerformed
 
-    private void tableCommunityDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCommunityDetailsMouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tableCommunityDetails.getModel();
-        
-        cmbBoxSelectCity.setSelectedItem((tableCommunityDetails.getSelectedRow(),2).toString());
-//                setText(tableCityDetails.getValueAt(tableCityDetails.getSelectedRow(), 0).toString());
-        txtState.setText(tableCityDetails.getValueAt(tableCityDetails.getSelectedRow(), 1).toString());
-        
-    }//GEN-LAST:event_tableCommunityDetailsMouseClicked
-
-    private void loadComboBoxData(){
+    private void loadComboBoxData() {
         cmbBoxSelectCity.removeAllItems();
-        for(City city: AddCityPanel.cityList){
+        for (City city : AddCityPanel.cityList) {
             cmbBoxSelectCity.addItem(city.getCityName());
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCommunity;
+    private javax.swing.JButton btnEditCommunity;
     private javax.swing.JButton btnUpdateCommunity;
+    private javax.swing.JButton btnViewCommunity;
     private javax.swing.JComboBox<String> cmbBoxSelectCity;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCommunityName;
     private javax.swing.JLabel lblSelectCity;
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JTable tableCommunityDetails;
     private javax.swing.JTextField txtCommunityName;
+    private javax.swing.JTextField txtCommunityName_U;
     private javax.swing.JTextField txtZipCode;
+    private javax.swing.JTextField txtZipCode_U;
     // End of variables declaration//GEN-END:variables
 }

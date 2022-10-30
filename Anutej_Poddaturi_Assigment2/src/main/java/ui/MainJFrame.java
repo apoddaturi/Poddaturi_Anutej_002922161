@@ -4,19 +4,16 @@
  */
 package ui;
 
-import java.awt.Image;
 import model.Doctor;
-import model.DoctorDirectory;
 import model.Patient;
-import model.PatientDirectory;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author podda
+ * @author anutej
+ * 
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -25,7 +22,6 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-
     }
 
     /**
@@ -57,17 +53,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         lblRole.setText("Select Role");
 
-        cmbBoxRole.setForeground(new java.awt.Color(67, 104, 227));
         cmbBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sys Admin", "Community Admin", "Hospital Admin", "Doctor", "Patient" }));
-        cmbBoxRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbBoxRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbBoxRoleActionPerformed(evt);
             }
         });
 
-        btnLogin.setBackground(new java.awt.Color(67, 104, 227));
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,46 +68,41 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LOGIN PAGE");
 
         javax.swing.GroupLayout jPanelMainFrameLayout = new javax.swing.GroupLayout(jPanelMainFrame);
         jPanelMainFrame.setLayout(jPanelMainFrameLayout);
         jPanelMainFrameLayout.setHorizontalGroup(
             jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                .addGap(251, 251, 251)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
+                .addContainerGap(264, Short.MAX_VALUE)
                 .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(275, 275, 275))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
-                        .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                    .addComponent(jLabel1)
+                    .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                            .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                                    .addComponent(lblRole)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                 .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
-                                            .addComponent(lblUserName)
-                                            .addGap(85, 85, 85))
-                                        .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                                            .addComponent(lblPassword)
-                                            .addGap(88, 88, 88)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
+                                        .addComponent(lblUserName)
+                                        .addGap(85, 85, 85))
                                     .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                                        .addComponent(lblRole)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtUserName)
-                                    .addComponent(cmbBoxRole, 0, 0, Short.MAX_VALUE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(252, 252, 252))))
+                                        .addComponent(lblPassword)
+                                        .addGap(88, 88, 88))))
+                            .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addComponent(cmbBoxRole, 0, 0, Short.MAX_VALUE)
+                                .addComponent(txtPassword)))))
+                .addGap(256, 256, 256))
         );
         jPanelMainFrameLayout.setVerticalGroup(
             jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUserName)
@@ -130,7 +117,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(cmbBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,48 +148,36 @@ public class MainJFrame extends javax.swing.JFrame {
         this.setVisible(false);
         if(userName.isEmpty() || password.length == 0) {
             JOptionPane.showMessageDialog(this,
-                        "Enter username & password",
-                        "Try Again",
-                        JOptionPane.ERROR_MESSAGE);
+                "Enter username & password",
+                "Try Again",
+                JOptionPane.ERROR_MESSAGE);
         }
         else {
             this.setVisible(false);
-            if(role.equalsIgnoreCase("Sys Admin") 
-                    && userName.equalsIgnoreCase("anutej")
-                    && passwordString.equalsIgnoreCase("123")) {
-                SystemAdminFrame AdminFrame = new SystemAdminFrame();
-                AdminFrame.setVisible(true);
-            }
-            else if(role.equalsIgnoreCase("Community Admin") 
-                    && userName.equalsIgnoreCase("anutejC")
-                    && passwordString.equalsIgnoreCase("commadmin")) {
-                CommunityAdmin communityAdminFrame = new CommunityAdmin();
+            if(role.equals("Community Admin")
+                && userName.equals("cadmin")
+                && passwordString.equals("cadmin")) {
+                CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
                 communityAdminFrame.setVisible(true);
             }
             else if (role.equals("Hospital Admin")
-                    && userName.equals("anutejH")
-                    && passwordString.equals("hadmin")) {
+                && userName.equals("hadmin")
+                && passwordString.equals("hadmin")) {
                 HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
-                hospitalAdminFrame.setVisible(true);               
+                hospitalAdminFrame.setVisible(true);
             }
             else if (role.equals("Patient")) {
-                for(Patient p: PatientDirectory.getPatients()) {
-                    try{
-                        if(userName.equalsIgnoreCase(p.getUserName()) && passwordString.equalsIgnoreCase(p.getPassWord())) 
-                        {
+                for(Patient p: HospitalAdminFrame.patients) {
+                    if(userName.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) {
                         PatientFrame patientFrame = new PatientFrame();
                         PatientPanel patientPanel = new PatientPanel(p);
                         patientFrame.setContentPane(patientPanel);
                         patientFrame.setVisible(true);
                     }
-                    }catch(Exception e)
-                    {
-                        System.out.println("The Patient List is empty");
-                    }
                 }
             }
             else if (role.equals("Doctor")) {
-                for(Doctor d: DoctorDirectory.getDoctors()) {
+                for(Doctor d: HospitalAdminFrame.doctors) {
                     if(userName.equals(d.getUserName()) && passwordString.equals(d.getPassWord())) {
                         DoctorFrame doctorFrame = new DoctorFrame();
                         DoctorPanel doctorPanel = new DoctorPanel(d);
@@ -211,7 +186,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     }
                 }
             }
-        revalidate();  
+            else if (role.equals("Sys Admin")
+                && userName.equals("sadmin")
+                && passwordString.equals("sadmin")) {
+                SystemAdminFrame systemAdminFrame = new SystemAdminFrame();
+                systemAdminFrame.setVisible(true);
+            }
+            revalidate();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

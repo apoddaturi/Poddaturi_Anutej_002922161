@@ -35,6 +35,17 @@ Using the application we are able to perform following operations:
 
 ![Doctor Sequence Diagram](./UML/sequence%20Diagram/doctor_sq.png)
 
+3. Community Admin: 
+
+![Community Admin Sequence Diagram](./UML/sequence%20Diagram/community_sq.png)
+
+4. Hospital Admin:
+
+![Hospital Admin Sequence Diagram](./UML/sequence%20Diagram/Hospital%20Admin_sq.png)
+
+5. System Admin:
+
+![System Admin Sequence Diagram](./UML/sequence%20Diagram/system_admin_sq.png)
 
 # Class Diagram
 
