@@ -16,8 +16,18 @@ public class Patient extends Person{
     private String city;
     private Long zipcode;
     private EncounterHistory encounterHistory;
-
+    private String patient_id;
+    private static int count=0;
     public Patient() {
+        setPatient_id("patient_"+(++count));
+    }
+
+    public String getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(String patient_id) {
+        this.patient_id = patient_id;
     }
 
     public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, EncounterHistory encounterHistory) {

@@ -18,8 +18,10 @@ public class Encounter {
     private VitalSigns vitalSigns;
     private String doctorName;
     private Date encounterDate;
-
+    
+    private static int count=0;
     public Encounter() {
+        setEncounterId("encounter_"+(++count));
     }
 
     public Encounter(String encounterId, String patientName, int patientAge, String patientId, VitalSigns vitalSigns, 

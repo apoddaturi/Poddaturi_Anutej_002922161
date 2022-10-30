@@ -10,11 +10,24 @@ package model;
  * @author sahithigaddam
  */
 public class Doctor extends Person{
+    private static int count=0;
     private String hospitalName;
     private String hospitalDepartment;
     private String phoneNumber;
+    private String DoctorId;
+
+    
     public Doctor() {
+        setDoctorId("doc_"+(++count));
         
+    }
+
+    public String getDoctorId() {
+        return DoctorId;
+    }
+
+    public void setDoctorId(String DoctorId) {
+        this.DoctorId = DoctorId;
     }
 
     public Doctor(String hospitalName, String hospitalDepartment, String phoneNumber) {

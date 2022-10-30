@@ -10,6 +10,7 @@ package model;
  * @author podda
  */
 public class Person {
+    private static int count = 0;
     private String name;
     private String id;
     private int age;
@@ -19,6 +20,7 @@ public class Person {
     private String passWord;
 
     public Person() {
+        setId("p_"+(++count));
     }
 
     public Person(String name, String id, int age, String gender, String role, String userName, String passWord) {
