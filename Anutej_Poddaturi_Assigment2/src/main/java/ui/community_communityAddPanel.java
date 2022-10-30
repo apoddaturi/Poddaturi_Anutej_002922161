@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author podda
  */
-public class AddCommunityPanel extends javax.swing.JPanel {
+public class community_communityAddPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddCommunityPanel
@@ -23,7 +23,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     public static List<Community> communities;
     DefaultTableModel tableModel;
     static ArrayList<Community> communityList = new ArrayList<Community>();
-    public AddCommunityPanel() {
+    public community_communityAddPanel() {
         initComponents();
         tableModel = (DefaultTableModel)tableCommunityDetails.getModel();
         loadComboBoxData();
@@ -170,7 +170,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
         else{
             Community community = new Community(communityName, Long.parseLong(zipCode), city);
             communityList.add(community);
-            for(City c: AddCityPanel.cityList) {
+            for(City c: community_cityAddPanel.cityList) {
             if(c.getCityName().equals(city)) {
                 communities = c.getCommunities();
                 communities.add(community);
@@ -196,7 +196,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
 
     private void loadComboBoxData(){
         cmbBoxSelectCity.removeAllItems();
-        for(City city: AddCityPanel.cityList){
+        for(City city: community_cityAddPanel.cityList){
             cmbBoxSelectCity.addItem(city.getCityName());
         }
     }

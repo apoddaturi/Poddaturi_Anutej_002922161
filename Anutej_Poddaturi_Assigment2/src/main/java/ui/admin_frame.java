@@ -4,24 +4,24 @@
  */
 package ui;
 
-import com.assignment2.packages.City;
-import com.assignment2.packages.Community;
-import static ui.AddCityPanel.cityList;
-import static ui.AddCommunityPanel.communityList;
+import model.City;
+import model.Community;
+import static ui.community_cityAddPanel.cityList;
+import static ui.community_communityAddPanel.communityList;
 import javax.swing.JPanel;
-import ui.DoctorPanel;
+//import ui.DoctorPanel;
 import ui.MainJFrame;
 
 /**
  *
  * @author podda
  */
-public class AdminFrame extends javax.swing.JFrame {
+public class admin_frame extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminFrame
      */
-    public AdminFrame() {
+    public admin_frame() {
         initComponents();
     }
 
@@ -120,9 +120,9 @@ public class AdminFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private void btnCityAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityAddActionPerformed
         // TODO add your handling code here:
         
-        AddCityPanel addCityPanel = new AddCityPanel();
+        community_cityAddPanel addCityPanel = new community_cityAddPanel();
         jSplitPane1.setRightComponent(addCityPanel);
         
         addCityPanel.tableModel.setRowCount(0);
@@ -157,7 +157,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
     private void btnCommunityCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityCreateActionPerformed
         // TODO add your handling code here:
-        AddCommunityPanel addCommunityPanel = new AddCommunityPanel();
+        community_communityAddPanel addCommunityPanel = new community_communityAddPanel();
         jSplitPane1.setRightComponent(addCommunityPanel);
         
         addCommunityPanel.tableModel.setRowCount(0);
@@ -185,20 +185,21 @@ public class AdminFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminFrame().setVisible(true);
+                new admin_frame().setVisible(true);
             }
         });
     }

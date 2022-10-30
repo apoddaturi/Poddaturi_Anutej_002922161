@@ -25,10 +25,6 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-        ImageIcon background=new ImageIcon("ui.images.patternpad.jpeg");
-        Image img=background.getImage();
-        Image temp=img.getScaledInstance(500,600,Image.SCALE_SMOOTH);
-        background=new ImageIcon(temp);
 
     }
 
@@ -171,18 +167,49 @@ public class MainJFrame extends javax.swing.JFrame {
         else {
             this.setVisible(false);
             if(role.equalsIgnoreCase("Sys Admin") 
-                    && userName.equals("anutej")
-                    && passwordString.equals("123")) {
-                CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
-                communityAdminFrame.setVisible(true);
+                    && userName.equalsIgnoreCase("anutej")
+                    && passwordString.equalsIgnoreCase("123")) {
+                admin_frame AdminFrame = new admin_frame();
+                AdminFrame.setVisible(true);
             }
             else if(role.equalsIgnoreCase("Community Admin") 
-                    && userName.equals("commadmin")
-                    && passwordString.equals("commadmin")) {
-                CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
+                    && userName.equalsIgnoreCase("anutejC")
+                    && passwordString.equalsIgnoreCase("commadmin")) {
+                community_admin communityAdminFrame = new community_admin();
                 communityAdminFrame.setVisible(true);
             }
-            
+            else if (role.equals("Hospital Admin")
+                    && userName.equals("anutejH")
+                    && passwordString.equals("hadmin")) {
+                HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
+                hospitalAdminFrame.setVisible(true);               
+            }
+            else if (role.equals("Patient")) {
+                for(Patient p: PatientDirectory.getPatients()) {
+                    try{
+                        if(userName.equalsIgnoreCase(p.getUserName()) && passwordString.equalsIgnoreCase(p.getPassWord())) 
+                        {
+                        PatientFrame patientFrame = new PatientFrame();
+                        PatientPanel patientPanel = new PatientPanel(p);
+                        patientFrame.setContentPane(patientPanel);
+                        patientFrame.setVisible(true);
+                    }
+                    }catch(Exception e)
+                    {
+                        System.out.println("The Patient List is empty");
+                    }
+                }
+            }
+            else if (role.equals("Doctor")) {
+                for(Doctor d: DoctorDirectory.getDoctors()) {
+                    if(userName.equals(d.getUserName()) && passwordString.equals(d.getPassWord())) {
+                        DoctorFrame doctorFrame = new DoctorFrame();
+                        DoctorPanel doctorPanel = new DoctorPanel(d);
+                        doctorFrame.setContentPane(doctorPanel);
+                        doctorFrame.setVisible(true);
+                    }
+                }
+            }
         revalidate();  
         }
     }//GEN-LAST:event_btnLoginActionPerformed

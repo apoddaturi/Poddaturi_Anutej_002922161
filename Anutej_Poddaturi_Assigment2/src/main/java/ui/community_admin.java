@@ -6,8 +6,8 @@ package ui;
 
 import model.City;
 import model.Community;
-import static ui.AddCityPanel.cityList;
-import static ui.AddCommunityPanel.communityList;
+import static ui.community_cityAddPanel.cityList;
+import static ui.community_communityAddPanel.communityList;
 import javax.swing.JPanel;
 import ui.MainJFrame;
 
@@ -15,12 +15,12 @@ import ui.MainJFrame;
  *
  * @author podda
  */
-public class CommunityAdminFrame extends javax.swing.JFrame {
+public class community_admin extends javax.swing.JFrame {
 
     /**
      * Creates new form CommunityAdminFrame
      */
-    public CommunityAdminFrame() {
+    public community_admin() {
         initComponents();
     }
 
@@ -33,7 +33,6 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jSplitPaneCommunity = new javax.swing.JSplitPane();
         jPanelCommunity = new javax.swing.JPanel();
         jButtonAddCommunity = new javax.swing.JButton();
@@ -98,48 +97,22 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
                 .addComponent(jButtonAddCity)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAddCommunity)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
                 .addComponent(btnLogoutCommunityAdminPanel)
                 .addGap(18, 18, 18))
         );
 
         jSplitPaneCommunity.setTopComponent(jPanelCommunity);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jSplitPaneCommunity)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
         );
 
         pack();
@@ -147,7 +120,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
 
     private void jButtonAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCommunityActionPerformed
         // TODO add your handling code here:
-        AddCommunityPanel addCommunityPanel = new AddCommunityPanel();
+        community_communityAddPanel addCommunityPanel = new community_communityAddPanel();
         jSplitPaneCommunity.setRightComponent(addCommunityPanel);
         
         addCommunityPanel.tableModel.setRowCount(0);
@@ -160,7 +133,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
 
     private void jButtonAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCityActionPerformed
         // TODO add your handling code here:
-        AddCityPanel addCityPanel = new AddCityPanel();
+        community_cityAddPanel addCityPanel = new community_cityAddPanel();
         jSplitPaneCommunity.setRightComponent(addCityPanel);
         
         addCityPanel.tableModel.setRowCount(0);
@@ -194,20 +167,21 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CommunityAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CommunityAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CommunityAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CommunityAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CommunityAdminFrame().setVisible(true);
+                new community_admin().setVisible(true);
             }
         });
     }
@@ -217,7 +191,6 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddCity;
     private javax.swing.JButton jButtonAddCommunity;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCommunity;
     private javax.swing.JSplitPane jSplitPaneCommunity;
     // End of variables declaration//GEN-END:variables
