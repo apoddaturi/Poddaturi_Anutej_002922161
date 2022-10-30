@@ -23,6 +23,10 @@ Using the application we are able to perform following operations:
 
 ## Sequence Diagrams
 
-1. Person
+1. Person:
 
-![Person Sequence Diagramn](./Patient.jpg)
+![Person Sequence Diagramn](./UML/sequence%20Diagram/Patient.jpg)
+
+2. Doctor:
+
+![Doctor Sequence Diagram](./UML/sequence%20Diagram/doctor_sq.png)
