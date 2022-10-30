@@ -49,6 +49,10 @@
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Component id="btnAddCommunity" min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="btnUpdateCommunity" min="-2" pref="133" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
@@ -86,6 +90,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnAddCommunity" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnUpdateCommunity" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
               </Group>
@@ -197,6 +203,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableCommunityDetailsMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -210,6 +219,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Community Admin - Add Community"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdateCommunity">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e3" green="68" red="43" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Update Community"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateCommunityActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

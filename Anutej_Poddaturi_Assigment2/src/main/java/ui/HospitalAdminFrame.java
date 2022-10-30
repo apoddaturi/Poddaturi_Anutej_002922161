@@ -50,7 +50,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     public void setCityCombobox() {
         jComboBoxHospitalCity.removeAllItems();
         cbPatientCity.removeAllItems();
-        for (City city : community_cityAddPanel.cityList) {
+        for (City city : AddCityPanel.cityList) {
             jComboBoxHospitalCity.addItem(city.getCityName());
             cbPatientCity.addItem(city.getCityName());
         }
@@ -1380,7 +1380,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String chosenCity = String.valueOf(cbPatientCity.getSelectedItem());
         String chosenCommunity = String.valueOf(cbPatientCommunity.getSelectedItem());
-        for (City obj : community_cityAddPanel.cityList) {
+        for (City obj : AddCityPanel.cityList) {
             if (obj.getCityName().equals((chosenCity))) {
                 for (Community comm : obj.getCommunities()) {
                     if (comm.getCommunityName().equals(chosenCommunity)) {
@@ -1580,7 +1580,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         String chosenCommunity = String.valueOf(jComboBoxHospitalCommunity.getSelectedItem());
         System.out.println(chosenCity);
         System.out.println(chosenCommunity);
-        for (City obj : community_cityAddPanel.cityList) {
+        for (City obj : AddCityPanel.cityList) {
             if (obj.getCityName().equals((chosenCity))) {
                 for (Community comm : obj.getCommunities()) {
                     if (comm.getCommunityName().equals(chosenCommunity)) {
@@ -1596,7 +1596,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jComboBoxHospitalCommunity.removeAllItems();
         String chosenCity = String.valueOf(jComboBoxHospitalCity.getSelectedItem());
-        for (City obj : community_cityAddPanel.cityList) {
+        for (City obj : AddCityPanel.cityList) {
             if (obj.getCityName().equals((chosenCity))) {
                 for (Community comm : obj.getCommunities()) {
                     jComboBoxHospitalCommunity.addItem(comm.getCommunityName());
@@ -1609,7 +1609,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         cbPatientCommunity.removeAllItems();
         String chosenCity = String.valueOf(cbPatientCity.getSelectedItem());
-        for (City obj : community_cityAddPanel.cityList) {
+        for (City obj : AddCityPanel.cityList) {
             if (obj.getCityName().equals((chosenCity))) {
                 for (Community comm : obj.getCommunities()) {
                     cbPatientCommunity.addItem(comm.getCommunityName());

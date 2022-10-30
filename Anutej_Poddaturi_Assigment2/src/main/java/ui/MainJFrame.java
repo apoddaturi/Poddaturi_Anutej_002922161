@@ -57,6 +57,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         lblRole.setText("Select Role");
 
+        cmbBoxRole.setForeground(new java.awt.Color(67, 104, 227));
         cmbBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sys Admin", "Community Admin", "Hospital Admin", "Doctor", "Patient" }));
         cmbBoxRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbBoxRole.addActionListener(new java.awt.event.ActionListener() {
@@ -169,13 +170,13 @@ public class MainJFrame extends javax.swing.JFrame {
             if(role.equalsIgnoreCase("Sys Admin") 
                     && userName.equalsIgnoreCase("anutej")
                     && passwordString.equalsIgnoreCase("123")) {
-                admin_frame AdminFrame = new admin_frame();
+                SystemAdminFrame AdminFrame = new SystemAdminFrame();
                 AdminFrame.setVisible(true);
             }
             else if(role.equalsIgnoreCase("Community Admin") 
                     && userName.equalsIgnoreCase("anutejC")
                     && passwordString.equalsIgnoreCase("commadmin")) {
-                community_admin communityAdminFrame = new community_admin();
+                CommunityAdmin communityAdminFrame = new CommunityAdmin();
                 communityAdminFrame.setVisible(true);
             }
             else if (role.equals("Hospital Admin")

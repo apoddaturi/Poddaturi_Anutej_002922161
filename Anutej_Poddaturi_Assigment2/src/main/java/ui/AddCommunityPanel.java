@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author podda
  */
-public class community_communityAddPanel extends javax.swing.JPanel {
+public class AddCommunityPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddCommunityPanel
@@ -23,7 +23,7 @@ public class community_communityAddPanel extends javax.swing.JPanel {
     public static List<Community> communities;
     DefaultTableModel tableModel;
     static ArrayList<Community> communityList = new ArrayList<Community>();
-    public community_communityAddPanel() {
+    public AddCommunityPanel() {
         initComponents();
         tableModel = (DefaultTableModel)tableCommunityDetails.getModel();
         loadComboBoxData();
@@ -48,6 +48,7 @@ public class community_communityAddPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCommunityDetails = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        btnUpdateCommunity = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(188, 151, 28));
 
@@ -85,11 +86,25 @@ public class community_communityAddPanel extends javax.swing.JPanel {
                 "Community Name", "ZipCode", "City"
             }
         ));
+        tableCommunityDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCommunityDetailsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableCommunityDetails);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Community Admin - Add Community");
+
+        btnUpdateCommunity.setBackground(new java.awt.Color(67, 104, 227));
+        btnUpdateCommunity.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateCommunity.setText("Update Community");
+        btnUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateCommunityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +131,10 @@ public class community_communityAddPanel extends javax.swing.JPanel {
                                         .addComponent(cmbBoxSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(69, 69, 69)
-                                .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -144,7 +162,9 @@ public class community_communityAddPanel extends javax.swing.JPanel {
                             .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -170,7 +190,7 @@ public class community_communityAddPanel extends javax.swing.JPanel {
         else{
             Community community = new Community(communityName, Long.parseLong(zipCode), city);
             communityList.add(community);
-            for(City c: community_cityAddPanel.cityList) {
+            for(City c: AddCityPanel.cityList) {
             if(c.getCityName().equals(city)) {
                 communities = c.getCommunities();
                 communities.add(community);
@@ -194,15 +214,32 @@ public class community_communityAddPanel extends javax.swing.JPanel {
         }      
     }//GEN-LAST:event_btnAddCommunityActionPerformed
 
+    private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnUpdateCommunityActionPerformed
+
+    private void tableCommunityDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCommunityDetailsMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tableCommunityDetails.getModel();
+        
+        cmbBoxSelectCity.setSelectedItem((tableCommunityDetails.getSelectedRow(),2).toString());
+//                setText(tableCityDetails.getValueAt(tableCityDetails.getSelectedRow(), 0).toString());
+        txtState.setText(tableCityDetails.getValueAt(tableCityDetails.getSelectedRow(), 1).toString());
+        
+    }//GEN-LAST:event_tableCommunityDetailsMouseClicked
+
     private void loadComboBoxData(){
         cmbBoxSelectCity.removeAllItems();
-        for(City city: community_cityAddPanel.cityList){
+        for(City city: AddCityPanel.cityList){
             cmbBoxSelectCity.addItem(city.getCityName());
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCommunity;
+    private javax.swing.JButton btnUpdateCommunity;
     private javax.swing.JComboBox<String> cmbBoxSelectCity;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

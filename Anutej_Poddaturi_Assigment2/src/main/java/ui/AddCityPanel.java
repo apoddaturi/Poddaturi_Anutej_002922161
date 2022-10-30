@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author podda
  */
-public class community_cityAddPanel extends javax.swing.JPanel {
+public class AddCityPanel extends javax.swing.JPanel {
 
     static Iterable<City> cities;
 
@@ -25,7 +25,7 @@ public class community_cityAddPanel extends javax.swing.JPanel {
     DefaultTableModel tableModel;
     static ArrayList<City> cityList = new ArrayList<City>();
 
-    public community_cityAddPanel() {
+    public AddCityPanel() {
         initComponents();
         tableModel = (DefaultTableModel) tableCityDetails.getModel();
     }
@@ -192,39 +192,34 @@ public class community_cityAddPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_tableCityDetailsMouseClicked
 
     private void btnUpdateCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCityActionPerformed
-        // TODO add your handling code here:
-        String cityName = txtCityName.getText();
-        String state = txtState.getText();
-        if (cityName.isEmpty() || state.isEmpty()) {
+try {
+            int row = tableCityDetails.getSelectedRow();
+            String city = txtCityName.getText();
+            String state = txtState.getText();
+
+            if (city.isEmpty() || state.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            } 
-        else {
-            int rowCount = tableModel.getRowCount();
-            
-            System.out.println("before c");
-            for(City c: cityList)
-            {
-            if(c.getCityName().equals(cityName) || c.getState().equals(state))
-            {
-                c.setCityName(cityName);
-                c.setState(state);
+            } else {
+                List<Community> communities = new ArrayList<Community>();
+                for (City c : cityList) {
+                    if (cityList.indexOf(c) == row) {
+                        communities = c.getCommunities();
+                        break;
+                    }
+                }
+                City updatedCity = new City(city, communities, state);
+                cityList.remove(row);
+                cityList.add(row, updatedCity);
+                tableModel.removeRow(row);
+                Object[] data = {city, state};
+                tableModel.insertRow(row, data);
             }
-            }
-            for(int i=rowCount-1; i>0;i--)
-            {
-                System.out.println(i);
-                tableModel.removeRow(i);
-            }
-            System.out.println("after c");
-            DefaultTableModel tableMdl = tableModel;
-            
-            for(City ci: cityList)
-            {System.out.println(ci.getCityName()+"---"+ci.getState());
-                tableMdl.addRow(new Object[]{ci.getCityName(),ci.getState()});
-            }
+
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
         }
     }//GEN-LAST:event_btnUpdateCityActionPerformed
 

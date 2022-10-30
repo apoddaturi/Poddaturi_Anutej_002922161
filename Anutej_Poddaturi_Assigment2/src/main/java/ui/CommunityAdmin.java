@@ -6,8 +6,8 @@ package ui;
 
 import model.City;
 import model.Community;
-import static ui.community_cityAddPanel.cityList;
-import static ui.community_communityAddPanel.communityList;
+import static ui.AddCityPanel.cityList;
+import static ui.AddCommunityPanel.communityList;
 import javax.swing.JPanel;
 import ui.MainJFrame;
 
@@ -15,12 +15,12 @@ import ui.MainJFrame;
  *
  * @author podda
  */
-public class community_admin extends javax.swing.JFrame {
+public class CommunityAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form CommunityAdminFrame
      */
-    public community_admin() {
+    public CommunityAdmin() {
         initComponents();
     }
 
@@ -112,7 +112,7 @@ public class community_admin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
+            .addComponent(jSplitPaneCommunity)
         );
 
         pack();
@@ -120,7 +120,7 @@ public class community_admin extends javax.swing.JFrame {
 
     private void jButtonAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCommunityActionPerformed
         // TODO add your handling code here:
-        community_communityAddPanel addCommunityPanel = new community_communityAddPanel();
+        AddCommunityPanel addCommunityPanel = new AddCommunityPanel();
         jSplitPaneCommunity.setRightComponent(addCommunityPanel);
         
         addCommunityPanel.tableModel.setRowCount(0);
@@ -133,7 +133,7 @@ public class community_admin extends javax.swing.JFrame {
 
     private void jButtonAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCityActionPerformed
         // TODO add your handling code here:
-        community_cityAddPanel addCityPanel = new community_cityAddPanel();
+        AddCityPanel addCityPanel = new AddCityPanel();
         jSplitPaneCommunity.setRightComponent(addCityPanel);
         
         addCityPanel.tableModel.setRowCount(0);
@@ -167,21 +167,35 @@ public class community_admin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CommunityAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CommunityAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CommunityAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(community_admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CommunityAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new community_admin().setVisible(true);
+                new CommunityAdmin().setVisible(true);
             }
         });
     }

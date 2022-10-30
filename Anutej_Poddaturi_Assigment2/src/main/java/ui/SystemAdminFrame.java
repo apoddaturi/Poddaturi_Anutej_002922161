@@ -6,8 +6,8 @@ package ui;
 
 import model.City;
 import model.Community;
-import static ui.community_cityAddPanel.cityList;
-import static ui.community_communityAddPanel.communityList;
+import static ui.AddCityPanel.cityList;
+import static ui.AddCommunityPanel.communityList;
 import javax.swing.JPanel;
 //import ui.DoctorPanel;
 import ui.MainJFrame;
@@ -16,12 +16,12 @@ import ui.MainJFrame;
  *
  * @author podda
  */
-public class admin_frame extends javax.swing.JFrame {
+public class SystemAdminFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminFrame
      */
-    public admin_frame() {
+    public SystemAdminFrame() {
         initComponents();
     }
 
@@ -137,7 +137,7 @@ public class admin_frame extends javax.swing.JFrame {
     private void btnCityAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityAddActionPerformed
         // TODO add your handling code here:
         
-        community_cityAddPanel addCityPanel = new community_cityAddPanel();
+        AddCityPanel addCityPanel = new AddCityPanel();
         jSplitPane1.setRightComponent(addCityPanel);
         
         addCityPanel.tableModel.setRowCount(0);
@@ -157,7 +157,7 @@ public class admin_frame extends javax.swing.JFrame {
 
     private void btnCommunityCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityCreateActionPerformed
         // TODO add your handling code here:
-        community_communityAddPanel addCommunityPanel = new community_communityAddPanel();
+        AddCommunityPanel addCommunityPanel = new AddCommunityPanel();
         jSplitPane1.setRightComponent(addCommunityPanel);
         
         addCommunityPanel.tableModel.setRowCount(0);
@@ -185,21 +185,27 @@ public class admin_frame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(admin_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new admin_frame().setVisible(true);
+                new SystemAdminFrame().setVisible(true);
             }
         });
     }
