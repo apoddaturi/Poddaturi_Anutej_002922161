@@ -17,3 +17,12 @@ After Opening it an IDE we can run it and see the application.
 
 Using the application we are able to perform following operations:
 
+
+
+# UML Diagrams
+
+## Sequence Diagrams
+
+1. Person
+
+![Person Sequence Diagramn](/Patient.jpg)
