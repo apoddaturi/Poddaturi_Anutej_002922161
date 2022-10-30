@@ -25,4 +25,4 @@ Using the application we are able to perform following operations:
 
 1. Person
 
-![Person Sequence Diagramn](/Patient.jpg)
+![Person Sequence Diagramn](./Patient.jpg)
