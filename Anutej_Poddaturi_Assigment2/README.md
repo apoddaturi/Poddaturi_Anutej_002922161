@@ -34,3 +34,8 @@ Using the application we are able to perform following operations:
 2. Doctor:
 
 ![Doctor Sequence Diagram](./UML/sequence%20Diagram/doctor_sq.png)
+
+
+# Class Diagram
+
+![Class Diagram](./UML/class/assignment2_class.png)
