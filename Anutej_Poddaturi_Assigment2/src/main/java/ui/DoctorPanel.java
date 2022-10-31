@@ -496,10 +496,19 @@ public class DoctorPanel extends javax.swing.JPanel {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             } else {
-                if(true)
-                {
-                    
-                }
+                if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(patientId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("\\d{1,2}"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            
                 else
                 {
                 int age = Integer.parseInt(patientAge);

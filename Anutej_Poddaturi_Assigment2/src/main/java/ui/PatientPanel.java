@@ -606,7 +606,7 @@ public class PatientPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int index = 0;
         int commIndex = 0;
-        tfPatientName.setEditable(true);
+//        tfPatientName.setEditable(true);
         tfPatientId.setEditable(false);
         tfPatientAge.setEditable(true);
         rbPatientGenderMale.setEnabled(true);
@@ -662,6 +662,36 @@ public class PatientPanel extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            
+            if(zipcode.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Zipcode cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(patientGender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(patientCommunity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"community cannot have numbers or special characters");    
+            }
+            if(patientCity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"city cannot have numbers or special characters");    
+            }
+            if(patientPhNo.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+            else{
             //Patient selectedPatient = listOfPatients.getPatients().get(row);
             Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
                 patientId, Integer.parseInt(patientAge), patientGender, "Patient", username,
@@ -678,7 +708,7 @@ public class PatientPanel extends javax.swing.JPanel {
             Object[] data = {patientName, patientId, patientAge, patientGender, houseNo, patientCommunity,
                 patientCity, zipcode, patientPhNo};
             tblPatientModel.addRow(data);
-        }
+        }}
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 
 
