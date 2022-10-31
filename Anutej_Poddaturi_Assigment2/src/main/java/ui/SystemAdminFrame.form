@@ -2179,45 +2179,9 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnAddHospital" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel29" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                                                  <Component id="jLabel28" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel30" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfHospitalCode_U" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="tfHospitalName_U" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="jComboBoxHospitalCommunity_U" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="tfHospitalPostalCode_U" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jComboBoxHospitalCity_U" min="-2" pref="135" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="btnViewHospital" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnEditHospital" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnUpdateHospital" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnDeleteHospital" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelHospitalCity" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
@@ -2227,16 +2191,51 @@
                                       <Component id="jLabelHospitalName" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="24" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfHospitalPostalCode" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxHospitalCommunity" alignment="0" pref="134" max="32767" attributes="0"/>
-                                      <Component id="tfHospitalCode" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxHospitalCity" alignment="0" pref="134" max="32767" attributes="0"/>
-                                      <Component id="tfHospitalName" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="tfHospitalCode" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxHospitalCity" alignment="0" pref="146" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxHospitalCommunity" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tfHospitalPostalCode" max="32767" attributes="0"/>
+                                      <Component id="tfHospitalName" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" min="-2" pref="493" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnAddHospital" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                  <Component id="jLabel29" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                                                  <Component id="jLabel28" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabel30" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                              <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tfHospitalName_U" linkSize="1" alignment="0" pref="135" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxHospitalCommunity_U" linkSize="1" alignment="0" pref="135" max="32767" attributes="0"/>
+                                              <Component id="tfHospitalPostalCode_U" linkSize="1" alignment="0" pref="135" max="32767" attributes="0"/>
+                                              <Component id="jComboBoxHospitalCity_U" linkSize="1" alignment="0" pref="135" max="32767" attributes="0"/>
+                                              <Component id="tfHospitalCode_U" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="18" pref="533" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnViewHospital" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnEditHospital" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnUpdateHospital" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnDeleteHospital" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2275,38 +2274,41 @@
                               </Group>
                               <Component id="jScrollPane1" alignment="1" min="-2" pref="148" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnAddHospital" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfHospitalName_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfHospitalName_U" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfHospitalCode_U" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfHospitalCode_U" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxHospitalCity_U" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBoxHospitalCommunity_U" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="tfHospitalPostalCode_U" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxHospitalCity_U" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnViewHospital" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEditHospital" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnUpdateHospital" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDeleteHospital" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBoxHospitalCommunity_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tfHospitalPostalCode_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="4500" max="32767" attributes="0"/>
+                          <EmptySpace pref="4504" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

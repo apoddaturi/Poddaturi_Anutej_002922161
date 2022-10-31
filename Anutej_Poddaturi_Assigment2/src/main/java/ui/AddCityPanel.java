@@ -294,7 +294,7 @@ public class AddCityPanel extends javax.swing.JPanel {
                     {
                         JOptionPane.showMessageDialog(this,"City Field cannot have numbers");
                     }
-                    if(!state.matches("[a-zA-Z]+"))
+                    if(!state.matches("[a-zA-Z\s]+"))
                     {
                         JOptionPane.showMessageDialog(this,"State Field cannot have numbers");
                     }
