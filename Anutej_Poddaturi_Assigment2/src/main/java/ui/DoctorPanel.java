@@ -307,8 +307,9 @@ public class DoctorPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -391,7 +392,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                                 .addComponent(btnEditEncounter)))))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEditEncounter, btnUpdateEncounter, btnViewEncounter});
@@ -507,6 +508,14 @@ public class DoctorPanel extends javax.swing.JPanel {
             if(patientAge.matches("\\d{1,2}"))
             {
             JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            if(heartRate.matches("(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"Heart Rate should be in proper format");    
             }
             
                 else
