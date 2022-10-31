@@ -156,6 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else {
+            try{
             this.setVisible(false);
             if (role.equals("Sys Admin")
                 && userName.equalsIgnoreCase("anutej")
@@ -184,6 +185,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         patientFrame.setVisible(true);
                     }
                 }
+                
             }
             else if (role.equals("Doctor")) {
                 for(Doctor d: HospitalAdminFrame.doctors) {
@@ -194,6 +196,13 @@ public class MainJFrame extends javax.swing.JFrame {
                         doctorFrame.setVisible(true);
                     }
                 }
+            }else{
+            this.setVisible(true);
+            JOptionPane.showMessageDialog(rootPane,"Invalid Credentials");
+            }
+            }catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(rootPane,"No Patients Please contact admin");
             }
             
             revalidate();
