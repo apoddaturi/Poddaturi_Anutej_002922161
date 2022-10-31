@@ -136,7 +136,7 @@
                                   <Component id="btnViewCommunity" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="79" max="32767" attributes="0"/>
+                          <EmptySpace pref="366" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -339,6 +339,11 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPaneladdDoctors">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="23" green="af" red="dc" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Doctor">
@@ -401,7 +406,7 @@
                                   <Component id="btnAddDoctor" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="122" max="32767" attributes="0"/>
+                          <EmptySpace pref="409" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -642,6 +647,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddDoctor">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add Doctor"/>
                   </Properties>
                   <Events>
@@ -706,6 +717,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnViewDoctor">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="View"/>
                   </Properties>
                   <Events>
@@ -714,6 +731,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditDoctor">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Edit"/>
                   </Properties>
                   <Events>
@@ -722,6 +745,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnUpdateDoctor">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Update"/>
                   </Properties>
                   <Events>
@@ -809,6 +838,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDeleteDoctor">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
                   <Events>
@@ -819,6 +854,9 @@
             </Container>
             <Container class="javax.swing.JPanel" name="jPanelAddPatients">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="23" green="af" red="dc" type="rgb"/>
+                </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1114, 2000]"/>
                 </Property>
@@ -835,7 +873,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane3" alignment="0" min="-2" pref="778" max="-2" attributes="0"/>
                               <Component id="btnAddPatient" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -960,7 +998,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="43" max="32767" attributes="0"/>
+                          <EmptySpace pref="326" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1480,6 +1518,11 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanelAddEncounters">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="23" green="af" red="dc" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Encounter">
@@ -1600,7 +1643,7 @@
                                   <Component id="jScrollPane4" min="-2" pref="792" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace pref="308" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1989,7 +2032,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="422" max="-2" attributes="0"/>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="373" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2190,7 +2233,7 @@
                                       <Component id="jLabelHospitalCommunity" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelHospitalName" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                                  <EmptySpace pref="311" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="tfHospitalCode" max="32767" attributes="0"/>
                                       <Component id="jComboBoxHospitalCity" alignment="0" pref="146" max="32767" attributes="0"/>
@@ -2225,7 +2268,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="18" pref="533" max="32767" attributes="0"/>
+                                  <EmptySpace min="18" pref="820" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnViewHospital" min="-2" max="-2" attributes="0"/>
@@ -2353,6 +2396,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddHospital">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add Hospital"/>
                   </Properties>
                   <Events>
@@ -2422,6 +2471,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnViewHospital">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="View"/>
                   </Properties>
                   <Events>
@@ -2430,6 +2485,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditHospital">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Edit"/>
                   </Properties>
                   <Events>
@@ -2438,6 +2499,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnUpdateHospital">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Update"/>
                   </Properties>
                   <Events>
@@ -2513,6 +2580,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDeleteHospital">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="dc" green="50" red="23" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
                   <Events>

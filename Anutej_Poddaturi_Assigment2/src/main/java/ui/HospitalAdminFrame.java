@@ -291,6 +291,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelAddHospitals.setBackground(new java.awt.Color(220, 175, 35));
+
         jLabelHospitalName.setText("Hospital Name");
 
         jLabelHospitalCommunity.setText("Hospital Community");
@@ -416,17 +418,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddHospitalsLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddHospitalsLayout.createSequentialGroup()
-                                .addGap(0, 12, Short.MAX_VALUE)
-                                .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
-                                .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelHospitalPostalCode)
-                                    .addComponent(jLabelHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelHospitalCommunity))
-                                .addGap(0, 7, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabelHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHospitalPostalCode)
+                            .addComponent(jLabelHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHospitalCommunity)
+                            .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1245,7 +1242,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Monaco", 1, 13)); // NOI18N
         jLabel15.setText("      Add New Patient");
         jLabel15.setPreferredSize(new java.awt.Dimension(168, 50));
-        jLabel15.setSize(new java.awt.Dimension(49, 507));
 
         jLabel24.setFont(new java.awt.Font("Monaco", 1, 13)); // NOI18N
         jLabel24.setText("  View & Update Existing Patients");

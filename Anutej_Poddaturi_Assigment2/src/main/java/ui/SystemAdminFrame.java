@@ -460,7 +460,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEditCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnViewCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
         jPanelAddCommunityLayout.setVerticalGroup(
             jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,6 +503,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Community", jPanelAddCommunity);
 
+        jPaneladdDoctors.setBackground(new java.awt.Color(220, 175, 35));
+
         jLabelDoctoreName.setText("Doctor name");
 
         jLabelDoctorId.setText("Doctor Id");
@@ -534,6 +536,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddDoctor.setBackground(new java.awt.Color(35, 80, 220));
+        btnAddDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnAddDoctor.setText("Add Doctor");
         btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -565,6 +569,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jLabelPassword.setText("Password");
 
+        btnViewDoctor.setBackground(new java.awt.Color(35, 80, 220));
+        btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDoctor.setText("View");
         btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -572,6 +578,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditDoctor.setBackground(new java.awt.Color(35, 80, 220));
+        btnEditDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDoctor.setText("Edit");
         btnEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -579,6 +587,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateDoctor.setBackground(new java.awt.Color(35, 80, 220));
+        btnUpdateDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateDoctor.setText("Update");
         btnUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -614,6 +624,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         btnGenderGroup.add(rdButtonFemale_U);
         rdButtonFemale_U.setText("Female");
 
+        btnDeleteDoctor.setBackground(new java.awt.Color(35, 80, 220));
+        btnDeleteDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteDoctor.setText("Delete");
         btnDeleteDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -663,7 +675,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                 .addComponent(tfDoctorUserName)
                                 .addComponent(tfDoctorPassword)))
                         .addComponent(btnAddDoctor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -795,6 +807,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
 
+        jPanelAddPatients.setBackground(new java.awt.Color(220, 175, 35));
         jPanelAddPatients.setPreferredSize(new java.awt.Dimension(1114, 2000));
 
         jLabel4.setText("Patient Name :");
@@ -989,7 +1002,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jPanelAddPatientsLayout.setHorizontalGroup(
             jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddPatient)
@@ -1086,7 +1099,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                 .addComponent(btnUpdatePatient)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDeletePatient)))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanelAddPatientsLayout.setVerticalGroup(
             jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1203,6 +1216,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
+
+        jPanelAddEncounters.setBackground(new java.awt.Color(220, 175, 35));
 
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
@@ -1403,7 +1418,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
         jPanelAddEncountersLayout.setVerticalGroup(
             jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1604,7 +1619,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     .addComponent(btnUpdateCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(74, 74, 74)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         jPanelAddCityLayout.setVerticalGroup(
             jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1667,6 +1682,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddHospital.setBackground(new java.awt.Color(35, 80, 220));
+        btnAddHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1706,6 +1723,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewHospital.setBackground(new java.awt.Color(35, 80, 220));
+        btnViewHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnViewHospital.setText("View");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1713,6 +1732,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditHospital.setBackground(new java.awt.Color(35, 80, 220));
+        btnEditHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnEditHospital.setText("Edit");
         btnEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1720,6 +1741,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHospital.setBackground(new java.awt.Color(35, 80, 220));
+        btnUpdateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateHospital.setText("Update");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1751,6 +1774,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteHospital.setBackground(new java.awt.Color(35, 80, 220));
+        btnDeleteHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteHospital.setText("Delete");
         btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1772,7 +1797,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabelHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHospitalCommunity)
                             .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tfHospitalCode)
                             .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.Alignment.LEADING, 0, 146, Short.MAX_VALUE)
@@ -1800,7 +1825,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                     .addComponent(tfHospitalPostalCode_U, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                     .addComponent(jComboBoxHospitalCity_U, 0, 135, Short.MAX_VALUE)
                                     .addComponent(tfHospitalCode_U))))
-                        .addGap(18, 533, Short.MAX_VALUE))
+                        .addGap(18, 820, Short.MAX_VALUE))
                     .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
                         .addComponent(btnViewHospital)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
