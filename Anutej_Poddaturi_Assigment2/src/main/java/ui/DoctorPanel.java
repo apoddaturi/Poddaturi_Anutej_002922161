@@ -517,6 +517,10 @@ public class DoctorPanel extends javax.swing.JPanel {
             {
             JOptionPane.showMessageDialog(this,"Heart Rate should be in proper format");    
             }
+            if(temperature.matches("(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"Heart Rate should be in proper format");    
+            }
             
                 else
                 {
@@ -644,6 +648,30 @@ public class DoctorPanel extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            
+            if(age.matches("\\d{1,2}"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            if(heartRate.matches("(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"Heart Rate should be in proper format");    
+            }
+            if(temperature.matches("(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"Heart Rate should be in proper format");    
+            }
+            
+                else
+                {
             int row = tableEncounterHistory.getSelectedRow();
             System.out.print("Encounter"+ encounterList.size());
             Encounter selectedEncounter = encounterList.get(row);
@@ -677,6 +705,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                     }
                 }
             }
+        }
         }
     }//GEN-LAST:event_btnUpdateEncounterActionPerformed
 

@@ -21,15 +21,20 @@ To clone you need to change to the directory in bash and run the below command:
 
 Using the application we are able to perform following operations:
 
-
+1. Select Role to login.
+2. As a patient see old encounters and search doctors.
+3. As a doctor create encounters.
+4. As a community admin manage community and create communities.
+5. As a Hospital Admin manage Hospital and resources.
+6. As a System Admin manage and operate on all resources.
 
 # UML Diagrams
 
 ## Sequence Diagrams
 
-1. Person:
+1. Patient:
 
-![Person Sequence Diagramn](./UML/sequence%20Diagram/Patient.jpg)
+![Patient Sequence Diagramn](./UML/sequence%20Diagram/Patient.jpg)
 
 2. Doctor:
 
