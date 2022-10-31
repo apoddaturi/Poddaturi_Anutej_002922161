@@ -1395,23 +1395,17 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                     .addComponent(lblEncounterPatientAge_U, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblEncounterDate_U, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblEncounterId_U, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54)
                                 .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
-                                            .addGap(54, 54, 54)
-                                            .addComponent(txtEncounterId_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtTemperature_U, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEncountersLayout.createSequentialGroup()
-                                            .addGap(52, 52, 52)
-                                            .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtTemperature_U, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEncountersLayout.createSequentialGroup()
-                                                    .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(txtEncounterPatientName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGap(4, 4, 4)))))
-                                    .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(dcEncounterDate_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(txtEncounterPatientName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(4, 4, 4))
+                                        .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtEncounterId_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(dcEncounterDate_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1469,7 +1463,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEncountePatientName_U)
                             .addComponent(txtEncounterPatientName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEncounterPatientAge_U)
                             .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2487,12 +2481,56 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         String userName = tfDoctorUserName.getText();
         String passWord = tfDoctorPassword.getText();
         String role = "Doctor";
-        doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
-        HospitalAdminFrame.doctors.add(doctor);
-        Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
-        doctorTblModel.addRow(data);
-        setDoctorCombobox();
-        displayDoctorTable();
+        
+        if(name.isEmpty() || id.isEmpty() || age<=0 || gender.isBlank() || department.isEmpty() 
+                || phoneNumber.isEmpty() || userName.isEmpty() || passWord.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"Fields cannot be zero or empty");
+        }
+        else
+        {
+            if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(id.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(age<=0)
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(gender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(department.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"department cannot have numbers or special characters");    
+            }
+            if(phoneNumber.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+            if(userName.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"Username cannot be empty");    
+            }
+            if(passWord.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"password cannot be empty");    
+            }            
+            else
+            {
+                doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
+                HospitalAdminFrame.doctors.add(doctor);
+                Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
+                doctorTblModel.addRow(data);
+                setDoctorCombobox();
+                displayDoctorTable();
+            }
+        }
     }//GEN-LAST:event_btnAddDoctorActionPerformed
 
     private void btnViewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDoctorActionPerformed
@@ -2586,6 +2624,34 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            
+            if(doctorName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(doctorId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(doctorAge.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(doctorGender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(doctorDepartment.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"department cannot have numbers or special characters");    
+            }
+            if(doctorPhNo.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+                      
+            else
+            {
             Doctor selectedDoctor = HospitalAdminFrame.doctors.get(row);
             Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName,
                 doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
@@ -2598,6 +2664,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             doctorTblModel.removeRow(row);
             doctorTblModel.insertRow(row, data);
             setDoctorCombobox();
+            }
         }
     }//GEN-LAST:event_btnUpdateDoctorActionPerformed
 
@@ -2696,7 +2763,49 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 }
             }
             if (flag == 0) {
-
+            if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(id.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(postalcode.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Zipcode cannot have less than 5 numbers");    
+            }
+            if(age.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(gender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(community.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"community cannot have numbers or special characters");    
+            }
+            if(city.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"city cannot have numbers or special characters");    
+            }
+            if(cellphone.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+            if(username.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"Username cannot be empty");    
+            }
+            if(password.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"password cannot be empty");    
+            }            
+            else
+            {
+                
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
 
@@ -2716,6 +2825,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 tfPatientUserName.setText("");
                 tfPatientPassword.setText("");
 
+            }
             }
             displayPatientTable();
         } catch (Exception ex) {
@@ -2792,6 +2902,43 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            
+            if (flag == 0) {
+            if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(patientId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(zipcode.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Zipcode cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(patientGender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(patientCommunity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"community cannot have numbers or special characters");    
+            }
+            if(patientCity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"city cannot have numbers or special characters");    
+            }
+            if(patientPhNo.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+                       
+            else
+            {
             Patient selectedPatient = HospitalAdminFrame.patients.get(row);
             Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
                 patientId, Integer.parseInt(patientAge), patientGender, "Patient", selectedPatient.getUserName(),
@@ -2802,6 +2949,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 patientCity, zipcode, patientPhNo};
             tblPatientModel.removeRow(row);
             tblPatientModel.insertRow(row, data);
+            }
+            }
         }
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 
@@ -2997,6 +3146,28 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             } else {
+            if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(patientId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(encounterId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"encounterid cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            else
+            {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns,
@@ -3013,6 +3184,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Encounter Saved",
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
+            }
             }
         } catch (Exception ex) {
 
@@ -3105,6 +3277,25 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 "Try Again",
                 JOptionPane.ERROR_MESSAGE);
         } else {
+            if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(encounterId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"encounterId cannot have less than 5 numbers");    
+            }
+            if(age.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            else
+            {
+                
             //            for (Encounter en : encounterList) {
                 //                if (en.getEncounterId().equals(txtEncounterId_U.getText())) {
                     //                    VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
@@ -3115,6 +3306,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     //                    encounterList.add(index, encounter);
                     //                }
                 //            }
+            
             int row = tableEncounterHistory.getSelectedRow();
             Encounter selectedEncounter = HospitalAdminFrame.encounterList.get(row);
             VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
@@ -3147,7 +3339,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     }
                 }
             }
-        }
+        }}
     }//GEN-LAST:event_btnUpdateEncounterActionPerformed
 
     private void btnDeleteEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEncounterActionPerformed

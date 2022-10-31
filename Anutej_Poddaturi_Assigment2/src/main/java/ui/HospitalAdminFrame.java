@@ -1734,6 +1734,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         String userName = tfDoctorUserName.getText();
         String passWord = tfDoctorPassword.getText();
         String role = "Doctor";
+        
         doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
         listOfDoctors.getDoctors().add(doctor);
         Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
