@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="23" green="af" red="dc" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -18,132 +23,124 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane4" alignment="1" min="-2" pref="722" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblEncounterDoctorName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblEncounterPatientName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="lblEncounterPatientAge" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="lblTemperature" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="lblBP" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="lblHR" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtEncounterPatientName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEncounterPatientAge" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtBP" alignment="0" pref="105" max="32767" attributes="0"/>
-                                          <Component id="txtHR" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEncounterDoctorName" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEncounterID" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="dcEncounterDate" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" min="-2" pref="722" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblEncounterDoctorName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblEncounterPatientName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="lblEncounterPatientAge" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="lblTemperature" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="lblBP" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="lblHR" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="txtPatientID" min="-2" pref="113" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnGetPatientID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="txtEncounterPatientName" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEncounterPatientAge" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtBP" alignment="0" pref="105" max="32767" attributes="0"/>
+                                      <Component id="txtHR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEncounterDoctorName" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEncounterID" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="dcEncounterDate" min="-2" pref="123" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="116" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="lblTemperature_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblBP_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblHeartRate_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblEncounterDoctorName_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblEncounterPatientAge_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblEncounterDate_U" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblEncounterId_U" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtEncounterId_U" min="-2" pref="116" max="-2" attributes="0"/>
-                                                      <Component id="dcEncounterDate_U" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                                      <Component id="txtTemperature_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                                      <Component id="txtBP_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                                      <Component id="txtHeartRate_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="txtEncounterDoctorName_U" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                                  <Component id="btnViewEncounter" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                                  <Component id="btnEditEncounter" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="btnUpdateEncounter" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel25" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="82" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                                          <Component id="txtEncounterPatientAge_U" min="-2" pref="116" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtEncounterPatientName_U" min="-2" pref="116" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="0" pref="106" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="txtPatientID" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnGetPatientID" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="btnAddEncounter" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="btnAddEncounter" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="118" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblTemperature_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBP_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblHeartRate_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterDoctorName_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterPatientAge_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterDate_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterId_U" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtEncounterId_U" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="dcEncounterDate_U" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                          <Component id="txtTemperature_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                          <Component id="txtBP_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                          <Component id="txtHeartRate_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtEncounterDoctorName_U" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="btnViewEncounter" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="btnEditEncounter" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnUpdateEncounter" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="171" pref="88" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                                      <Component id="txtEncounterPatientAge_U" min="-2" pref="116" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtEncounterPatientName_U" min="-2" pref="116" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel25" min="-2" pref="207" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="111" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="txtPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnGetPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel25" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnLogOut" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGetPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel25" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnLogOut" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -231,17 +228,17 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnUpdateEncounter" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="btnUpdateEncounter" linkSize="2" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="btnViewEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnEditEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnViewEncounter" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditEncounter" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jScrollPane4" min="-2" pref="248" max="-2" attributes="0"/>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -251,6 +248,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGetPatientID">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="dc" green="50" red="23" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Get Patient"/>
       </Properties>
       <Events>
@@ -311,6 +314,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddEncounter">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="dc" green="50" red="23" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Add Encounter"/>
       </Properties>
       <Events>
@@ -349,6 +358,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLogOut">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Serif" size="12" style="3"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Logout"/>
       </Properties>
       <Events>
@@ -358,7 +376,10 @@
     <Component class="javax.swing.JLabel" name="jLabel25">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Monaco" size="13" style="1"/>
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" View &amp; Update Encounter"/>
       </Properties>
@@ -431,6 +452,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnViewEncounter">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="dc" green="50" red="23" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
       <Events>
@@ -439,6 +466,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEditEncounter">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="dc" green="50" red="23" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
       <Events>
@@ -447,6 +480,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateEncounter">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="dc" green="50" red="23" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
       <Events>
@@ -456,6 +495,17 @@
     <Component class="com.toedter.calendar.JDateChooser" name="dcEncounterDate_U">
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dcEncounterDate">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Doctors Panel"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

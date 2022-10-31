@@ -53,6 +53,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         lblRole.setText("Select Role");
 
+        cmbBoxRole.setForeground(new java.awt.Color(35, 80, 220));
         cmbBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sys Admin", "Community Admin", "Hospital Admin", "Doctor", "Patient" }));
         cmbBoxRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +61,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setForeground(new java.awt.Color(35, 80, 220));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,26 +78,27 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
                 .addContainerGap(264, Short.MAX_VALUE)
-                .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                        .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                                .addComponent(lblRole)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
+                                    .addComponent(lblUserName)
+                                    .addGap(85, 85, 85))
                                 .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                                    .addComponent(lblRole)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainFrameLayout.createSequentialGroup()
-                                        .addComponent(lblUserName)
-                                        .addGap(85, 85, 85))
-                                    .addGroup(jPanelMainFrameLayout.createSequentialGroup()
-                                        .addComponent(lblPassword)
-                                        .addGap(88, 88, 88))))
-                            .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addComponent(cmbBoxRole, 0, 0, Short.MAX_VALUE)
-                                .addComponent(txtPassword)))))
+                                    .addComponent(lblPassword)
+                                    .addGap(88, 88, 88))))
+                        .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(cmbBoxRole, 0, 0, Short.MAX_VALUE)
+                            .addComponent(txtPassword)))
+                    .addGroup(jPanelMainFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(71, 71, 71)))
                 .addGap(256, 256, 256))
         );
         jPanelMainFrameLayout.setVerticalGroup(
@@ -114,10 +117,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRole)
-                    .addComponent(cmbBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
