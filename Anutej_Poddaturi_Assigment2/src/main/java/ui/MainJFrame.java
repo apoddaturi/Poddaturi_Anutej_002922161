@@ -154,15 +154,21 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         else {
             this.setVisible(false);
-            if(role.equals("Community Admin")
-                && userName.equals("cadmin")
-                && passwordString.equals("cadmin")) {
+            if (role.equals("Sys Admin")
+                && userName.equalsIgnoreCase("anutej")
+                && passwordString.equalsIgnoreCase("123")) {
+                SystemAdminFrame systemAdminFrame = new SystemAdminFrame();
+                systemAdminFrame.setVisible(true);
+            }
+            else if(role.equals("Community Admin")
+                && userName.equalsIgnoreCase("anutejC")
+                && passwordString.equals("123")) {
                 CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
                 communityAdminFrame.setVisible(true);
             }
             else if (role.equals("Hospital Admin")
-                && userName.equals("hadmin")
-                && passwordString.equals("hadmin")) {
+                && userName.equalsIgnoreCase("anutejH")
+                && passwordString.equals("123")) {
                 HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
                 hospitalAdminFrame.setVisible(true);
             }
@@ -186,12 +192,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     }
                 }
             }
-            else if (role.equals("Sys Admin")
-                && userName.equals("sadmin")
-                && passwordString.equals("sadmin")) {
-                SystemAdminFrame systemAdminFrame = new SystemAdminFrame();
-                systemAdminFrame.setVisible(true);
-            }
+            
             revalidate();
         }
     }//GEN-LAST:event_btnLoginActionPerformed

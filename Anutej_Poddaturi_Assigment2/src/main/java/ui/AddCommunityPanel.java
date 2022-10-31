@@ -223,24 +223,33 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
             } else {
-                Community community = new Community(communityName, Long.parseLong(zipCode), city);
-                communityList.add(community);
-                for (City c : AddCityPanel.cityList) {
-                    if (c.getCityName().equals(city)) {
-                        communities = c.getCommunities();
-                        communities.add(community);
-                        c.setCommunities(communities);
-                    } else {
-                        communities = new ArrayList();
-                    }
+                if(!communityName.matches("[a-zA-Z\s]+"))
+                {
+                    JOptionPane.showMessageDialog(this,"Community cannot have numbers or special characters");
                 }
-                Object[] data = {communityName, zipCode, city};
-                tableModel.addRow(data);
-                //System.out.println(communityList.size());
-                JOptionPane.showMessageDialog(this,
-                        "Community Data Saved",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
+                if(!zipCode.matches("\\d{5}"))
+                {
+                    JOptionPane.showMessageDialog(this,"Zipcode needs to have 5 numbers");
+                }
+                else
+                {
+                    
+                    Community community = new Community(communityName, Long.parseLong(zipCode), city);
+                    communityList.add(community);
+                    for (City c : AddCityPanel.cityList) {
+                        if (c.getCityName().equals(city)) {
+                            communities = c.getCommunities();
+                            communities.add(community);
+                            c.setCommunities(communities);
+                        } else {
+                            communities = new ArrayList();
+                        }
+                    }
+                    Object[] data = {communityName, zipCode, city};
+                    tableModel.addRow(data);
+                    //System.out.println(communityList.size());
+                    JOptionPane.showMessageDialog(this,"Community Data Saved","Success",JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -255,12 +264,6 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             String zipcode = tableModel.getValueAt(row, 1).toString();
             String city = tableModel.getValueAt(row, 2).toString();
 
-//            cmbBoxSelectCity_U.removeAllItems();
-////           for(City c: AddCityPanel.cityList){
-//            cmbBoxSelectCity_U.addItem(city);
-////           }
-////            cmbBoxSelectCity_U.getItemAt(row);
-//            cmbBoxSelectCity_U.setEnabled(false);
             txtCommunityName_U.setText(community);
             txtCommunityName_U.setEditable(false);
 
@@ -275,11 +278,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         txtCommunityName_U.setEditable(true);
         txtZipCode_U.setEditable(true);
-//        cmbBoxSelectCity_U.setEnabled(true);
-//        cmbBoxSelectCity_U.removeAllItems();
-//           for(City c: AddCityPanel.cityList){
-//            cmbBoxSelectCity_U.addItem(c.getCityName());
-//           }
+
     }//GEN-LAST:event_btnEditCommunityActionPerformed
 
     private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
@@ -288,40 +287,51 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             int row = tableCommunityDetails.getSelectedRow();
             String community = txtCommunityName_U.getText();
             String zipcode = txtZipCode_U.getText();
-            //String city = cmbBoxSelectCity_U.getSelectedItem().toString();
-
+            
             if (community.isEmpty() || zipcode.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
             } else {
-                Community selectedCommunity = communityList.get(row);
-                String city = selectedCommunity.getCityName();
-                Community updatedCommunity = new Community(community, Long.parseLong(zipcode), city);
-                communityList.remove(row);
-                communityList.add(row, updatedCommunity);
-                tableModel.removeRow(row);
-                Object[] data = {community, zipcode, city};
-                tableModel.insertRow(row, data);
-                for (City c : AddCityPanel.cityList) {
-                    if (c.getCityName().equals(city)) {
+                if(!community.matches("[a-zA-Z\s]+"))
+                {
+                    JOptionPane.showMessageDialog(this,"Community cannot have numbers or special characters");
+                }
+                if(!zipcode.matches("\\d{5}"))
+                {
+                    JOptionPane.showMessageDialog(this,"Zipcode needs to have 5 numbers");
+                }
+                else{
+                    Community selectedCommunity = communityList.get(row);
+                    String city = selectedCommunity.getCityName();
+                    Community updatedCommunity = new Community(community, Long.parseLong(zipcode), city);
+                    communityList.remove(row);
+                    communityList.add(row, updatedCommunity);
+                    tableModel.removeRow(row);
+                    Object[] data = {community, zipcode, city};
+                    tableModel.insertRow(row, data);
+                    for (City c : AddCityPanel.cityList) 
+                    {
+                        if (c.getCityName().equals(city)) 
+                        {
                         //communities = c.getCommunities();
-                        for (Community comm : c.getCommunities()) {
-                            if (comm.getCommunityName().equals(selectedCommunity.getCommunityName())) {
-                                comm.setCommunityName(community);
-                                comm.setCityName(city);
-                                comm.setZipCode(Long.parseLong(zipcode));
-                                break;
+                            for (Community comm : c.getCommunities()) {
+                                if (comm.getCommunityName().equals(selectedCommunity.getCommunityName())) {
+                                    comm.setCommunityName(community);
+                                    comm.setCityName(city);
+                                    comm.setZipCode(Long.parseLong(zipcode));
+                                    break;
+                                }
                             }
-                        }
-//                    communities.add(updatedCommunity);
-//                    c.setCommunities(communities); 
-//                    break;
-                    } else {
+                        } 
+                        else 
+                        {
                         communities = new ArrayList();
+                        }
                     }
                 }
+                
             }
         } catch (Exception ex) {
             System.out.print(ex.toString());
