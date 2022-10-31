@@ -1571,6 +1571,28 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
             } else {
+                if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(patientId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(encounterId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"encounterid cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            else
+            {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, doctorName, encounterDate);
@@ -1586,7 +1608,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Encounter Saved",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
-            }
+            }}
         } catch (Exception ex) {
 
         }
@@ -1701,7 +1723,48 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 }
             }
             if (flag == 0) {
-
+                if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(id.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(postalcode.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Zipcode cannot have less than 5 numbers");    
+            }
+            if(age.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(gender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(community.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"community cannot have numbers or special characters");    
+            }
+            if(city.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"city cannot have numbers or special characters");    
+            }
+            if(cellphone.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+            if(username.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"Username cannot be empty");    
+            }
+            if(password.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"password cannot be empty");    
+            }            
+            else
+            {
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
 
@@ -1722,6 +1785,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 tfPatientPassword.setText("");
 
             }
+        }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,
                     "Enter All Fields",
@@ -1773,13 +1837,53 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         String userName = tfDoctorUserName.getText();
         String passWord = tfDoctorPassword.getText();
         String role = "Doctor";
+        if(name.isEmpty() || id.isEmpty() || age<=0 || gender.isBlank() || department.isEmpty() 
+                || phoneNumber.isEmpty() || userName.isEmpty() || passWord.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"Fields cannot be zero or empty");
+        }
         
-        doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
-        listOfDoctors.getDoctors().add(doctor);
-        Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
-        doctorTblModel.addRow(data);
-        setDoctorCombobox();
-        displayDoctorTable();
+        if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(id.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(age<=0)
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(gender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(department.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"department cannot have numbers or special characters");    
+            }
+            if(phoneNumber.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+            if(userName.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"Username cannot be empty");    
+            }
+            if(passWord.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"password cannot be empty");    
+            }            
+            else
+            {
+            doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
+            listOfDoctors.getDoctors().add(doctor);
+            Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
+            doctorTblModel.addRow(data);
+            setDoctorCombobox();
+            displayDoctorTable();
+            }
         } catch (Exception ex) {
             System.out.print(ex.toString());
         }
@@ -1796,17 +1900,47 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         try {
-            String name = tfHospitalName.getText();
+        String name = tfHospitalName.getText();
         Long code = Long.valueOf(tfHospitalCode.getText());
         String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
         //String city = tfHospitalCity.getText();
         String city = (String) jComboBoxHospitalCity.getSelectedItem();
         Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
+        if(name.isEmpty() || code<=0 || community.isEmpty() || city.isEmpty() || postalCode<=0)
+        {
+            JOptionPane.showMessageDialog(this,
+                "Enter all Fields");
+        }
+        else{
+        if(!name.matches("[a-zA-Z\s]+"))
+        {
+           JOptionPane.showMessageDialog(this,"Hospital Name cannot have numbers or special characters"); 
+        }
+        if(code<0)
+        {
+           JOptionPane.showMessageDialog(this,"Hospital Code cannot be less than 0"); 
+        }
+           if(community.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"Community cannot be empty"); 
+            }
+            if(city.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"state should be proper"); 
+            }
+        if(postalCode<0 || String.valueOf(postalCode).length()<5)
+        {
+               JOptionPane.showMessageDialog(this,"Hospital pinCode should not be negative or have less than 5 numbers"); 
+        }
+        else
+        {
         hospital = new Hospital(name, community, postalCode, city, code);
         listOfHospitals.getHospitals().add(hospital);
         
         displayHospitalTable();
         setHospitalNameComboBox();
+        }
+        }
         } catch (Exception ex) {
             System.out.print(ex.toString());
         }
@@ -1955,7 +2089,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private void btnUpdateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEncounterActionPerformed
         // TODO add your handling code here:
         try {
-            String encounterId = txtEncounterId_U.getText();
+        String encounterId = txtEncounterId_U.getText();
         Date encounterDate = dcEncounterDate_U.getDate();
         String name = txtEncounterPatientName_U.getText();
         String age = txtEncounterPatientAge_U.getText();
@@ -1972,6 +2106,24 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 "Try Again",
                 JOptionPane.ERROR_MESSAGE);
         } else {
+            if(name.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(encounterId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"encounterId cannot have less than 5 numbers");    
+            }
+            if(age.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(bloodPressure.matches("(\\d{1,3})(\\/)(\\d{1,3})"))
+            {
+            JOptionPane.showMessageDialog(this,"blood pressure should be in proper format");    
+            }
+            else
+            {
             //            for (Encounter en : encounterList) {
                 //                if (en.getEncounterId().equals(txtEncounterId_U.getText())) {
                     //                    VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
@@ -2013,6 +2165,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     }
                 }
             }
+        }
         }
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -2161,6 +2314,28 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            if(!hospitalName.matches("[a-zA-Z\s]+"))
+            {
+               JOptionPane.showMessageDialog(this,"Hospital Name cannot have numbers or special characters"); 
+            }
+            if(hospitalCode.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"Hospital Code cannot be less than 0"); 
+            }
+            if(hospitalCommunity.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"Community cannot be empty"); 
+            }
+            if(hospitalCity.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"state should be proper"); 
+            }
+            if(zipcode.matches("\\d{5}"))
+            {
+               JOptionPane.showMessageDialog(this,"Hospital pinCode should not be negative or have less than 5 numbers"); 
+            }
+            else
+            {
             Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
                 Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
 
@@ -2171,7 +2346,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             Object[] data = {hospitalName, hospitalCommunity, hospitalCode, hospitalCity, zipcode};
             tblModel.insertRow(row, data);
             setHospitalNameComboBox();
-        }
+        }}
             
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -2273,6 +2448,34 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            
+            if(doctorName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(doctorId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(doctorAge.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(doctorGender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(doctorDepartment.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"department cannot have numbers or special characters");    
+            }
+            if(doctorPhNo.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+                      
+            else
+            {
             Doctor selectedDoctor = listOfDoctors.getDoctors().get(row);
             Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName,
                 doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
@@ -2285,6 +2488,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             doctorTblModel.removeRow(row);
             doctorTblModel.insertRow(row, data);
             setDoctorCombobox();
+        }
         }
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -2353,6 +2557,42 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
         }
         else{
+            if (flag == 0) {
+            if(patientName.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"name cannot have numbers or special characters");    
+            }
+            if(patientId.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Id cannot have less than 5 numbers");    
+            }
+            if(zipcode.matches("\\d{5}"))
+            {
+            JOptionPane.showMessageDialog(this,"Zipcode cannot have less than 5 numbers");    
+            }
+            if(patientAge.matches("(\\d{1,2})"))
+            {
+            JOptionPane.showMessageDialog(this,"age cannot be less than or equal to zero");    
+            }
+            if(patientGender.isEmpty())
+            {
+            JOptionPane.showMessageDialog(this,"gender cannot be left blank");    
+            }
+            if(patientCommunity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"community cannot have numbers or special characters");    
+            }
+            if(patientCity.matches("[a-zA-Z\s]"))
+            {
+            JOptionPane.showMessageDialog(this,"city cannot have numbers or special characters");    
+            }
+            if(patientPhNo.matches("\\d{10}"))
+            {
+            JOptionPane.showMessageDialog(this,"phone number cannot have less than 10 digits");    
+            }
+                       
+            else
+            {
             Patient selectedPatient = listOfPatients.getPatients().get(row);
             Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
                 patientId, Integer.parseInt(patientAge), patientGender, "Patient", selectedPatient.getUserName(),
@@ -2364,7 +2604,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tblPatientModel.removeRow(row);
             tblPatientModel.insertRow(row, data);
         }
-        } catch (Exception ex) {
+        }}} catch (Exception ex) {
             System.out.print(ex.toString());
         }
 

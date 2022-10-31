@@ -2250,14 +2250,14 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             {
                JOptionPane.showMessageDialog(this,"Hospital Code cannot be less than 0"); 
             }
-//            if(community.matches("[a-zA-Z\s]"))
-//            {
-//               JOptionPane.showMessageDialog(this,"Hospital Community cannot have numbers"); 
-//            }
-//            if(city.matches("[a-zA-Z\s]"))
-//            {
-//               JOptionPane.showMessageDialog(this,"Hospital State cannot have numbers"); 
-//            }
+            if(community.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"Community cannot be empty"); 
+            }
+            if(city.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"state should be proper"); 
+            }
             if(postalCode<0 || String.valueOf(postalCode).length()<5)
             {
                JOptionPane.showMessageDialog(this,"Hospital pinCode should not be negative or have less than 5 numbers"); 
@@ -2391,14 +2391,14 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             {
                JOptionPane.showMessageDialog(this,"Hospital Code cannot be less than 0"); 
             }
-//            if(community.matches("[a-zA-Z\s]"))
-//            {
-//               JOptionPane.showMessageDialog(this,"Hospital Community cannot have numbers"); 
-//            }
-//            if(city.matches("[a-zA-Z\s]"))
-//            {
-//               JOptionPane.showMessageDialog(this,"Hospital State cannot have numbers"); 
-//            }
+            if(hospitalCommunity.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"Community cannot be empty"); 
+            }
+            if(hospitalCity.isEmpty())
+            {
+               JOptionPane.showMessageDialog(this,"state should be proper"); 
+            }
             if(zipcode.matches("\\d{5}"))
             {
                JOptionPane.showMessageDialog(this,"Hospital pinCode should not be negative or have less than 5 numbers"); 
